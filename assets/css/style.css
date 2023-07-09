@@ -1,0 +1,70 @@
+/* Settings when screen is wider then height */
+/* background image picture */
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(92, 98, 116);
+
+}
+body {
+    font-family: 'Waiting for the Sunrise', cursive;
+    background-image: url(../images/background1.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    width: 100%;
+}
+header {
+    margin-left: 50%;
+    text-align: center;
+    margin-top: 3%;
+    width: 50%;
+}
+.instructions {
+    margin-right: 50%;
+    text-align: center;
+    width: 50%;
+    padding-bottom: 20px;
+    line-height: 130%;
+    
+}
+form {
+    text-align: center;
+    margin-right: 50%;
+}
+form input {
+    width: 40%;
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+form button {
+    margin-top: 50px;
+    width: 80px;
+    height: 20px;
+    line-height: 35px;
+    vertical-align: middle;
+    padding-bottom: 2.5rem;
+    border: 2px solid red;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 2.5rem;
+}
+footer ul {
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 10%;
+}
+footer li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 5%;
+    padding-right: 5%;
+}
