@@ -1,19 +1,129 @@
-/* Settings when screen is wider then height */
-/* background image picture */
-* {
-    margin: 0;
-    padding: 0;
-    color: rgb(92, 98, 116);
+@font-face { /*creating local fort - Handwritten */
+    font-family: Handwritten;
+    src: url(assets/fonts/architectsdaughter_regular.ttf);
+}
 
+@font-face { /*creating local fort - Mono */
+    font-family: Mono;
+    src: url(assets/fonts/jackwrite.woff2);
+}
+/* 
+pre, code {
+    font-family: Mono !important;
+} */
+html, body {
+    max-width: 100% !important;
+    overflow: auto;
 }
 body {
-    font-family: 'Waiting for the Sunrise', cursive;
-    background-image: url(../images/background1.jpg);
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
-    min-height: 100%;
-    width: 100%;
+    /* min-height: calc((1vw + 1vh) * 75); */
+    box-shadow: 0 0 0 black, 0 0 6em #8a4d0f inset;
+    background: #fffef0;
+    margin: 0;
+    padding: 2em;
 }
+
+*:not(html):not(body) {
+    font-family: 'Handwritten', cursive;
+    font-size: 1.25rem;
+    background: transparent;
+    padding: 0.5rem 0.5rem;
+    margin: .5rem .25rem .25rem;
+    color: #403e41;
+    outline: none;
+    box-shadow: 1em 1.5em 1.5em -1em rgba(0, 0, 0, 0.5);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    box-sizing: border-box;
+    border: solid 0.1em #4140344E;
+    width:fit-content;
+    max-width: 99%;
+    overflow: hidden;
+}
+
+/* Media
+img, video, iframe {
+    padding: 0 !important;
+    margin: 0 !important;
+} */
+
+/* ::cue {
+    color: ;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: "Mono";
+    font-size: 2rem;
+}
+
+   */
+
+  /* Rotations */
+
+*:nth-child(odd):not(body):not(html){
+    transform: rotate(2deg);
+}
+*:nth-child(even):not(body):not(html) {
+    transform: rotate(-2deg);
+}
+
+/* hr {
+    width: 50% !important;
+    padding: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: dotted gray .1rem !important;
+} */
+
+h1 { font-size: 2rem !important; }
+h2 { font-size: 1.75rem !important;}
+h3 { font-size: 1.5rem !important; }
+h4 { font-size: 1.25rem !important; }
+h5 { font-size: 1.15rem !important; }
+h6 { font-size: 1.05rem !important; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    box-shadow: #8080803d .5rem .5em !important;
+}
+/* 
+ol {
+    list-style-type: lower-roman;
+    list-style-position: inside;
+}
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+} */
+select {
+    overflow: auto !important;
+}
+
+
+
+.footer {
+    height: 2.5rem;
+    float: right;
+    width: 50%;
+    margin-top: -50px;
+}
+
+/*
+footer ul {
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 10%;
+}
+footer li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+
+
+
+
 header {
     margin-left: 50%;
     text-align: center;
@@ -48,23 +158,4 @@ form button {
     vertical-align: middle;
     padding-bottom: 2.5rem;
     border: 2px solid red;
-}
-footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 2.5rem;
-}
-footer ul {
-    text-align: center;
-    margin-bottom: 5px;
-    padding: 0;
-    width: 100%;
-    margin-bottom: 10%;
-}
-footer li {
-    list-style-type: none;
-    display: inline-block;
-    padding-left: 5%;
-    padding-right: 5%;
-}
+} */
