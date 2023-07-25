@@ -6,39 +6,57 @@
     <title>HangMan</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
-    <!-- <script src="typewriter.js"></script> -->
+    <script src="assets/java_script/game.js"></script>
 </head>
 <body>
-    <header class="header"><h1>Hangman</h1></header>
-    <div id="hangman">
-        <img src="assets/images/hanged.png" alt="Hangman Picture">
-    </div>
-    <div class="instructions">
-        <h2>Instructions</h2><br>
-
-        <p>
-            1. This is a well known game - Hangman <br>
-            2. You can select difficulty for the word you have to guess <br>
-            3. Game will ask Chat GPT to generate a word for You <br>
-            4. Enter Your name<br>
-            5. Press START <br>
-            6. Enjoy the GAME <br>
-        </p>
-        <p>
-            P.S.: There are 2 more levels of difficultly. 
-        </p>
-    </div>
-    <div id="form">
-        <form method="post">
+<!-- DIV Right will be located on right side of screen while screen width is more in pixels then height -->
+<div id="right">
+    <nav class="frame top" id="nav">
+        <div>
+        <a class="frame" href="http://" id="GitHub" target="_blank" title="Opens in new TAB" aria-label="Go to my GitHub (Opens in new TAB)"> Source Code</a>
+        <a class="frame" href="http://" id="LinkedIn" target="_blank" title="Opens in new TAB" aria-label="Go to my LinkedIn page (Opens in new TAB)">LinkedIn</a>
+        <a class="frame" href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a></div>
+    </nav>
+    <img class="frame" id="img" src="assets/images/hanged.png" alt="Hangman Picture">
+    <form method="post" id="form" >
         <label for="username" id="label">USERNAME</label>
-        <input type="text" id="username" placeholder="Type Your username here" required><br>
+        <input type="text" id="username" placeholder="Type Your Name here" required><br>
+        <input type="range" id="difficulty" min="1" max="5" value="1">
         <button type="submit">START</button>
-        </form>
-    </div>
-    <footer class="footer">
-                <a href="http://" id="GitHub" target="_blank" title="Opens in new TAB" aria-label="Go to my GitHub (Opens in new TAB)"> Source Code</a>
-                <a href="http://" id="LinkedIn" target="_blank" title="Opens in new TAB" aria-label="Go to my LinkedIn page (Opens in new TAB)">LinkedIn</a>
-                <a href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a>
-    </footer>
+    </form>
+</div>
+<!-- DIV Left will be located on left side of screen while screen width is more in pixels then height -->
+<div id="left">
+    <main class="frame" id="instructions">
+        <h1 class="frame">Hangman</h1>
+        <section>
+            <h2>Instructions</h2>
+            <ol>
+                <li>This is a well known game - Hangman</li>
+                <li>You can select difficulty for the word you have to guess</li>
+                <li>Game will ask Chat GPT to generate a word for You</li>
+                <li>Enter Your name</li>
+                <li>Press START</li>
+                <li>Enjoy the GAME</li>
+            </ol>
+            <!-- <p >
+                1. This is a well known game - Hangman <br>
+                2. You can select difficulty for the word you have to guess <br>
+                3. Game will ask Chat GPT to generate a word for You <br>
+                4. Enter Your name<br>
+                5. Press START <br>
+                6. Enjoy the GAME <br>
+            </p> -->
+            <p>
+                P.S.: There are 2 more levels of difficultly. Try to unlock them 
+            </p>
+        </section>
+
+    </main>
+    
+</div>
+
+
+
 </body>
 </html>
