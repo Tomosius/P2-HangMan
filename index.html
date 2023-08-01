@@ -10,53 +10,38 @@
 </head>
 <body>
 <!-- DIV Right will be located on right side of screen while screen width is more in pixels then height -->
-<div id="right">
-    <nav class="frame top" id="nav">
-        <div>
-        <a class="frame" href="http://" id="GitHub" target="_blank" title="Opens in new TAB" aria-label="Go to my GitHub (Opens in new TAB)"> Source Code</a>
-        <a class="frame" href="http://" id="LinkedIn" target="_blank" title="Opens in new TAB" aria-label="Go to my LinkedIn page (Opens in new TAB)">LinkedIn</a>
-        <a class="frame" href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a></div>
-    </nav>
-    <img class="frame" id="img" src="assets/images/hanged.png" alt="Hangman Picture">
-    <form method="post" id="form" >
-        <label for="username" id="label">USERNAME</label>
-        <input type="text" id="username" placeholder="Type Your Name here" required><br>
-        <input type="range" id="difficulty" min="1" max="5" value="1">
-        <button type="submit">START</button>
-    </form>
+<div class="split right">
+        <nav>
+            
+            <a class="frame" href="http://" id="GitHub" target="_blank" title="Opens in new TAB" aria-label="Go to my GitHub (Opens in new TAB)"> Source Code</a>
+            <a class="frame" href="http://" id="LinkedIn" target="_blank" title="Opens in new TAB" aria-label="Go to my LinkedIn page (Opens in new TAB)">LinkedIn</a>
+            <a class="frame" href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a>
+        </nav>
+        <img class="frame" id="image" src="assets/images/hanged.png" alt="Hangman Picture">
+        <form method="post">
+            <label for="username" id="label">USERNAME</label>
+            <input type="text" id="username" placeholder="Type Your Name here" required><br>
+            <input type="range" id="difficulty" min="1" max="5" value="1">
+            <button type="submit">START</button>
+        </form>
 </div>
 <!-- DIV Left will be located on left side of screen while screen width is more in pixels then height -->
-<div id="left">
-    <main class="frame" id="instructions">
-        <h1 class="frame">Hangman</h1>
-        <section>
-            <h2>Instructions</h2>
-            <ol>
-                <li>This is a well known game - Hangman</li>
-                <li>You can select difficulty for the word you have to guess</li>
-                <li>Game will ask Chat GPT to generate a word for You</li>
-                <li>Enter Your name</li>
-                <li>Press START</li>
-                <li>Enjoy the GAME</li>
-            </ol>
-            <!-- <p >
-                1. This is a well known game - Hangman <br>
-                2. You can select difficulty for the word you have to guess <br>
-                3. Game will ask Chat GPT to generate a word for You <br>
-                4. Enter Your name<br>
-                5. Press START <br>
-                6. Enjoy the GAME <br>
-            </p> -->
-            <p>
-                P.S.: There are 2 more levels of difficultly. Try to unlock them 
-            </p>
-        </section>
-
-    </main>
-    
+<div class="split left">
+        <div class="frame instructions">
+            <h1 class="frame">Hangman</h1>
+            <section>
+                <h2>Instructions</h2>
+                <p>1. This is a well known game - Hangman</p>
+                <p>2. You can select difficulty for the word you have to guess</p>
+                <p>3. Game will ask Chat GPT to generate a word for You</p>
+                <p>4. Enter Your name</p>
+                <p>5. Press START</p>
+                <p>6. Enjoy the GAME</p>
+                <p class="frame">
+                    P.S.: There are 2 more levels of difficultly. Try to unlock them 
+                </p>
+            </section>
+        </div>
 </div>
-
-
-
 </body>
 </html>
