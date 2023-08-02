@@ -6,7 +6,6 @@
     <title>HangMan</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
-    <script src="assets/java_script/game.js"></script>
 </head>
 <body>
 <!-- DIV Right will be located on right side of screen while screen width is more in pixels then height -->
@@ -21,15 +20,16 @@
         <form method="post">
             <label for="username" id="label">USERNAME</label>
             <input type="text" id="username" placeholder="Type Your Name here" required><br>
-            <input type="range" id="difficulty" min="1" max="5" value="1">
-            <button type="submit">START</button>
+            <input type="range" onchange="update_slider_difficulty_name();" id="difficulty" min="1" max="5" value="1">
+            <label for="difficulty" id="difficulty_label">beginner</label>
+            <button onclick="start_game()">START</button>
         </form>
 </div>
 <!-- DIV Left will be located on left side of screen while screen width is more in pixels then height -->
 <div class="split left">
         <div class="frame instructions">
             <h1 class="frame">Hangman</h1>
-            <section>
+            <section id="game_text">
                 <h2>Instructions</h2>
                 <p>1. This is a well known game - Hangman</p>
                 <p>2. You can select difficulty for the word you have to guess</p>
@@ -43,5 +43,6 @@
             </section>
         </div>
 </div>
+<script src="assets/java_script/game.js"></script>
 </body>
 </html>
