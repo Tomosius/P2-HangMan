@@ -17,11 +17,11 @@
             <a class="frame" href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a>
         </nav>
         <img class="frame" id="image" src="assets/images/hanged.png" alt="Hangman Picture">
-        <form method="post">
+        <form method="post" id="form">
             <label for="username" id="label">USERNAME</label>
             <input type="text" id="username" placeholder="Type Your Name here" required><br>
-            <input type="range" onchange="update_slider_difficulty_name();" id="difficulty" min="1" max="5" value="1">
-            <label for="difficulty" id="difficulty_label">beginner</label>
+            <input type="range" oninput="update_slider_difficulty_label();" id="difficulty_range" min="1" max="5" value="1">
+            <label for="difficulty_range" id="difficulty_label">beginner</label>
             <button onclick="start_game()">START</button>
         </form>
 </div>
@@ -41,8 +41,9 @@
                     P.S.: There are 2 more levels of difficultly. Try to unlock them 
                 </p>
             </section>
+            <div id="guessedWord"></div>
         </div>
 </div>
-<script src="assets/java_script/game.js"></script>
+<script src="/assets/java_script/hangman.js"></script>
 </body>
 </html>

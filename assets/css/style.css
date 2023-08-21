@@ -73,6 +73,9 @@ nav a {
     color: #403e41;
     text-align: center;
 }
+nav a:hover {
+    color: rgba(136, 8, 8, 1);
+}
 #image {
     display: block;
     width: 40vw;
@@ -113,6 +116,21 @@ form label, input, button{
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Creating styling for game */
+
+.letter_button {
+    font-size: 5vh;
+}
+.letter_button:hover {
+    color: rgba(136, 8, 8, 1);
+    border-color: black;
+}
+.letters_container {
+    margin-top: 4vh;
+    padding-top: 4vh;
+}
+
 @media screen and (max-width: 450px),screen and (orientation: portrait) {
 
     .split{
@@ -179,5 +197,8 @@ form label, input, button{
     .instructions p {
         line-height: 100%;
         font-size: 2vh;
+    }
+    .letter_button {
+        font-size: 4vw;
     }
 }
