@@ -47,15 +47,11 @@ const hangmanImages = [
   "h10.png"
 ];
 
-
 // Function to update the hangman picture 
 function hangmanImageUpdate(mistakeCount) {
   let imageElement = document.getElementById("image");
-  imageElement.src = `../images/h${mistakeCount}.png`;
+  imageElement.src = `../images/h7.png`;
 }
-
-
-
 
 // Changing label "beginner" to other difficulties from the array based on the slider value
 function updateSliderDifficultyLabel() {
@@ -177,6 +173,4 @@ function newGame(event) {
 }
 
 //when player wins or looses execute gameOver function
-function gameOver () {
 
-}
