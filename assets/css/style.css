@@ -140,7 +140,9 @@ form label, input, button{
 .guessWordLetters {
     font-size: 5vh;
 }
-
+.gameOverButton {
+    font-size: 6vh;
+}
 @media screen and (max-width: 450px),screen and (orientation: portrait) {
 
     .split{

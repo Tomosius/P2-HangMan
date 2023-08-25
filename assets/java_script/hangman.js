@@ -10,6 +10,7 @@ let finalResult = ""; // win or loose
 let elapsedTimeInSeconds = ""; //timer to log player actions
 let difficulty = "beginner"; // declaring difficulty variable and setting it to the lowest value for default
 let startTime = 0; //setting to zero timer when the game starts
+let winsInRow = 0;
 
 //Array of difficulties
 const difficultyArray = [
@@ -50,7 +51,7 @@ const hangmanImages = [
 // Function to update the hangman picture 
 function hangmanImageUpdate(mistakeCount) {
   let imageElement = document.getElementById("image");
-  imageElement.src = `../images/h${mistakeCount}.png`;
+  imageElement.src = "assets/images/h" + mistakeCount + ".png";
 }
 
 // Changing label "beginner" to other difficulties from the array based on the slider value
@@ -63,7 +64,7 @@ function updateSliderDifficultyLabel() {
   // Update the displayed difficulty label
   label.innerHTML = difficulty;
   // Correct the scope of the username variable
-  console.log(difficulty);
+  return difficulty;
 }
 
 //function to generate a new word for the game and display it as "_"
@@ -79,7 +80,7 @@ function chooseWord(difficulty) {
     hiddenWord.push("_");
     }
   // Initialize the hiddenWord array with underscores
-  return word; // Return the chosen word
+return word; // Return the chosen word
 }
 
 //function to update the hidden word
@@ -106,15 +107,21 @@ function createAlphabet() {
     button.textContent = letter;
     button.className = "frame letterButton";
     buttonContainer.appendChild(button);
-    button.addEventListener("click", function() {
+
+    function letterClickHandler() {
       console.log("Letter clicked: " + letter); // Debugging
+      button.style.backgroundColor = "rgb(136, 8, 8)"; // Set background color to red
       letterGuess(letter, hiddenWord, word);
-    });
+      button.removeEventListener("click", letterClickHandler); // Remove the event listener after letterGuess is executed
+    }
+
+    button.addEventListener("click", letterClickHandler);
   }
 }
 
+
 // Function to handle a letter guess
-function letterGuess(letter, hiddenWord, word, mistakeCount) {
+function letterGuess(letter, hiddenWord, word) {
   letter = letter.toLowerCase(); // Convert letter to lowercase for comparison
   if (word.includes(letter)) {
     for (let i = 0; i < word.length; i++) {
@@ -123,17 +130,25 @@ function letterGuess(letter, hiddenWord, word, mistakeCount) {
         hiddenWord[i] = letter.toUpperCase(); // Update the corresponding index in the hiddenWord array
       }
     }
-    if (hiddenWord == word.toUpperCase) {
-      gameOver();
+    updateHiddenWord(hiddenWord);
+    // Check if the word has been completely guessed
+    if (hiddenWord.join("").toUpperCase() === word.toUpperCase()) {
+      winsInRow++;
+      document.getElementById('Contact').innerHTML = winsInRow;
+      gameOver(mistakeCount, winsInRow);
     }
-  } else // proceed that it was a mistake in game
-    {
-      mistakeCount ++;
-      hangmanImageUpdate(mistakeCount);
-      gameOver ();
-    }
+  } else {
+    mistakeCount++; // Increment the global mistakeCount variable
+    hangmanImageUpdate(mistakeCount);
+
+  }
   updateHiddenWord(hiddenWord);
+  if (mistakeCount === 10) {
+  winsInRow = 0;
+  gameOver (mistakeCount, winsInRow);
 }
+}
+
 
 // Function to update the timer display
 function updateTimerDisplay(elapsedTimeInSeconds) {
@@ -157,11 +172,11 @@ function updateTimer() {
 
 //function to be executed when the player starts a new game
 function newGame(event) {
+  mistakeCount = 0;
   event.preventDefault(); // Disable screen update
   if (username === "") { // Checking if there is already a username declared
     username = document.getElementById("username").value; // If there is no username declared, do so
   }
-  console.log(username); // Logging the username
   chooseWord(difficulty); // Choosing a new word for the selected difficulty
 
   // Initialize the hiddenWord array with underscores
@@ -173,4 +188,35 @@ function newGame(event) {
 }
 
 //when player wins or looses execute gameOver function
+function gameOver(mistakeCount, difficulty) {
+  if (mistakeCount === 10) {
+    let buttonContainer = document.getElementById('gameText');
+    buttonContainer.innerHTML = "";
 
+    let buttonTryAgain = document.createElement('button');
+    buttonTryAgain.className = "frame gameOverButton";
+    buttonTryAgain.textContent = "Try Again";
+    buttonContainer.appendChild(buttonTryAgain);
+    buttonTryAgain.addEventListener('click', newGame);
+
+    const wordIds = Object.keys(wordArray).reduce((acc, difficulty) => {
+      acc[difficulty] = wordArray[difficulty].map(word => word);
+      return acc;
+    }, {});
+
+
+
+    let buttonTryAgainEasier = document.createElement('button');
+    buttonTryAgainEasier.className = "frame gameOverButton";
+    buttonTryAgainEasier.textContent = "Try Easier Difficulty " + wordIds;
+    buttonContainer.appendChild(buttonTryAgainEasier);
+    buttonTryAgainEasier.addEventListener('click', function() {
+      let difficultyId = wordArray.indexOf(word);
+      if (difficultyId > 0) {
+        difficultyId--;
+        difficulty = difficultyArray[difficultyId];
+      }
+      newGame(); // Start a new game with the updated difficulty level
+    });
+  }    
+}
