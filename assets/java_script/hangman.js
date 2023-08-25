@@ -190,6 +190,10 @@ function newGame(event) {
 //when player wins or looses execute gameOver function
 function gameOver(mistakeCount, difficulty) {
   if (mistakeCount === 10) {
+    //displaying hidden word
+    displayHiddenWord();
+
+
     let buttonContainer = document.getElementById('gameText');
     buttonContainer.innerHTML = "";
 
@@ -208,18 +212,36 @@ function gameOver(mistakeCount, difficulty) {
 
     let buttonTryAgainEasier = document.createElement('button');
     buttonTryAgainEasier.className = "frame gameOverButton";
-    buttonTryAgainEasier.textContent = "Try Easier Difficulty " + wordIds;
+    buttonTryAgainEasier.textContent = "Try Easier Difficulty ";
     buttonContainer.appendChild(buttonTryAgainEasier);
-    buttonTryAgainEasier.addEventListener('click', function() {
-      let difficultyId = wordArray.indexOf(word);
-      if (difficultyId > 0) {
-        difficultyId--;
-        difficulty = difficultyArray[difficultyId];
-      }
-      newGame(); // Start a new game with the updated difficulty level
-    });
+    slider = document.getElementById("difficultyRange");
+    sliderValue = slider.value - 1;
+    document.getElementById("difficultyRange").value = sliderValue
+    updateSliderDifficultyLabel()
+    buttonTryAgainEasier.textContent = "Try Easier Difficulty " + document.getElementById("difficultyLabel").textContent;
+    buttonTryAgainEasier.addEventListener('click', newGame); // Start a new game with the updated difficulty level
   }    
 }
 
+//function to reveal hidden word
+function displayHiddenWord() {
+  let hiddenWordLocation = document.getElementById('guessedWord');
+  hiddenWordLocation.innerHTML = ''; // Clear previous content
 
-//diffficulty is still not displayed correctly. needs reversed thinking....
+  for (let i = 0; i < word.length; i++) {
+    let hiddenWordLetter = document.createElement("span");
+
+    if (hiddenWord[i].toUpperCase() === word[i].toUpperCase()) {
+      hiddenWordLetter.textContent = hiddenWord[i];
+      hiddenWordLetter.className = "frame guessWordLetters";
+    } else {
+      hiddenWordLetter.textContent = word[i].toUpperCase();
+      hiddenWordLetter.className = "frame guessWordLetters";
+      hiddenWordLetter.style.backgroundColor = "rgba(136, 8, 8, 0.5)";
+    }
+
+    hiddenWordLocation.appendChild(hiddenWordLetter);
+  }
+}
+
+

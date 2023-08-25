@@ -143,6 +143,10 @@ form label, input, button{
 .gameOverButton {
     font-size: 6vh;
 }
+.gameOverButton:hover {
+    color: rgba(136, 8, 8, 1);
+    border-color: black;
+}
 @media screen and (max-width: 450px),screen and (orientation: portrait) {
 
     .split{
