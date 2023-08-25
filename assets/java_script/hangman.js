@@ -50,7 +50,7 @@ const hangmanImages = [
 // Function to update the hangman picture 
 function hangmanImageUpdate(mistakeCount) {
   let imageElement = document.getElementById("image");
-  imageElement.src = `../images/h7.png`;
+  imageElement.src = `../images/h${mistakeCount}.png`;
 }
 
 // Changing label "beginner" to other difficulties from the array based on the slider value
