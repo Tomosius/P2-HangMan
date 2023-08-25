@@ -34,7 +34,7 @@ const wordArray = {
 };
 
 // array of hangman image filenames to be used in the function hangmanUpdatePicture
-let hangmanImages = [
+const hangmanImages = [
   "h1.png",
   "h2.png",
   "h3.png",
@@ -129,7 +129,7 @@ function letterGuess(letter, hiddenWord, word, mistakeCount) {
     }
   } else // proceed that it was a mistake in game
     {
-      mistakeCount = mistakeCount + 1 ;
+      mistakeCount ++;
       hangmanImageUpdate(mistakeCount);
     }
   updateHiddenWord(hiddenWord);
