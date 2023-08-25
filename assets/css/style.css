@@ -119,14 +119,14 @@ form label, input, button{
 
 /* Creating styling for game */
 
-.letter_button {
+.letterButton {
     font-size: 5vh;
 }
-.letter_button:hover {
+.letterButton:hover {
     color: rgba(136, 8, 8, 1);
     border-color: black;
 }
-.letters_container {
+.lettersContainer {
     margin-top: 4vh;
     padding-top: 4vh;
 }
@@ -198,7 +198,7 @@ form label, input, button{
         line-height: 100%;
         font-size: 2vh;
     }
-    .letter_button {
+    .letterButton {
         font-size: 4vw;
     }
 }

@@ -20,9 +20,9 @@
         <form method="post" id="form">
             <label for="username" id="label">USERNAME</label>
             <input type="text" id="username" placeholder="Type Your Name here" required><br>
-            <input type="range" oninput="update_slider_difficulty_label();" id="difficulty_range" min="1" max="5" value="1">
-            <label for="difficulty_range" id="difficulty_label">beginner</label>
-            <button onclick="start_game()">START</button>
+            <input type="range" oninput="updateSliderDifficultyLabel();" id="difficultyRange" min="1" max="5" value="1">
+            <label for="difficulty_range" id="difficultyLabel">beginner</label>
+            <button onclick="newGame()">START</button>
         </form>
 </div>
 <!-- DIV Left will be located on left side of screen while screen width is more in pixels then height -->
@@ -44,6 +44,9 @@
             <div id="guessedWord"></div>
         </div>
 </div>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
 <script src="/assets/java_script/hangman.js"></script>
 </body>
 </html>
