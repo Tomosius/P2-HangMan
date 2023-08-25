@@ -220,3 +220,6 @@ function gameOver(mistakeCount, difficulty) {
     });
   }    
 }
+
+
+//diffficulty is still not displayed correctly. needs reversed thinking....
