@@ -75,18 +75,61 @@ function updateSliderDifficultyLabel() {
   console.log(difficulty);
 }
 
+//function to generate new word for game and display in "_"
 function chooseWord(difficulty) {
-  
+  let wordList = wordArray[difficulty];
+  let wordIndex = Math.floor(Math.random() * wordList.length);
+  word = wordList[wordIndex]; // Declare and assign the word variable
+  // Get the element where the hidden word will be displayed
+  let hiddenWordLocation = document.getElementById('guessedWord');
+  hiddenWordLocation.innerHTML = ''; // Clear previous content
+  for (let i = 0; i < word.length; i++) {
+    let hiddenWordLetter = document.createElement("span");
+    hiddenWordLetter.textContent = "_";
+    hiddenWordLetter.className = "frame guessWordLetters";
+    hiddenWordLocation.appendChild(hiddenWordLetter); 
+  }
+  return word; // Return the chosen word
+}
+
+
+//function to remove instructions section from screen
+function clearGameText() {
+  document.getElementById('gameText').innerHTML = "";
+}
+
+//function to create and display in HTML alphabet as separate buttons
+function createAlphabet() {
+  let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let buttonContainer = document.getElementById('gameText'); // getting location where buttons will be placed
+  for (let i = 0; i < alphabet.length; i++) {
+    let letter = alphabet[i];
+    let button = document.createElement("button");
+    button.textContent = letter;
+    button.className = "frame letterButton";
+    buttonContainer.appendChild(button);
+  }
 }
 
 
 
+
+
+
+
+
+
 //function to be executed when player starts new game
-function newGame(){
+function newGame(event){
+    event.preventDefault(); // disable screen update
     if (username == "") { //checking if there is already username declared
       username = document.getElementById("username").value; //if there is not username declared, doing so
     }
     console.log(username); //logging username
 
-    function chooseWord(difficulty);
+    chooseWord(difficulty); // choosing new word for selected difficulty
+
+    clearGameText() //clearing text on screen so it is blank for future use
+
+    createAlphabet() //creating alphabet
 }
