@@ -51,7 +51,7 @@ const hangmanImages = [
 // Function to update the hangman picture 
 function hangmanImageUpdate(mistakeCount) {
   let imageElement = document.getElementById("image");
-  imageElement.src = `assets/images/h${mistakeCount}.png`;
+  imageElement.src = `../images/h${mistakeCount}.png`;
 }
 
 
