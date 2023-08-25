@@ -127,15 +127,17 @@ function letterGuess(letter, hiddenWord, word, mistakeCount) {
         hiddenWord[i] = letter.toUpperCase(); // Update the corresponding index in the hiddenWord array
       }
     }
+    if (hiddenWord == word.toUpperCase) {
+      gameOver();
+    }
   } else // proceed that it was a mistake in game
     {
       mistakeCount ++;
       hangmanImageUpdate(mistakeCount);
+      gameOver ();
     }
   updateHiddenWord(hiddenWord);
 }
-
-
 
 // Function to update the timer display
 function updateTimerDisplay(elapsedTimeInSeconds) {
@@ -174,4 +176,7 @@ function newGame(event) {
   startTimer(); // Setting the current time when the game starts
 }
 
+//when player wins or looses execute gameOver function
+function gameOver () {
 
+}
