@@ -34,7 +34,7 @@ const wordArray = {
 };
 
 // array of hangman image filenames to be used in the function hangmanUpdatePicture
-const hangmanImages = [
+let hangmanImages = [
   "h1.png",
   "h2.png",
   "h3.png",
@@ -47,12 +47,15 @@ const hangmanImages = [
   "h10.png"
 ];
 
+
 // Function to update the hangman picture 
 function hangmanImageUpdate(mistakeCount) {
   let imageElement = document.getElementById("image");
-  imageElement.src = "/assets/images/" + hangmanImages[mistakeCount];
-  console.log("mistake count:" + mistakeCount);
+  imageElement.src = `assets/images/h${mistakeCount}.png`;
 }
+
+
+
 
 // Changing label "beginner" to other difficulties from the array based on the slider value
 function updateSliderDifficultyLabel() {
@@ -115,14 +118,24 @@ function createAlphabet() {
 }
 
 // Function to handle a letter guess
-function letterGuess(letter, hiddenWord, word) {
-  for (let i = 0; i < word.length; i++) {
-    if (letter.toLowerCase() === word[i].toLowerCase()) {
-      hiddenWord[i] = letter.toUpperCase(); // Update the corresponding index in the hiddenWord array
+function letterGuess(letter, hiddenWord, word, mistakeCount) {
+  letter = letter.toLowerCase(); // Convert letter to lowercase for comparison
+  if (word.includes(letter)) {
+    for (let i = 0; i < word.length; i++) {
+      let lowerCaseWordChar = word[i].toLowerCase();
+      if (letter === lowerCaseWordChar) {
+        hiddenWord[i] = letter.toUpperCase(); // Update the corresponding index in the hiddenWord array
+      }
     }
-  }
+  } else // proceed that it was a mistake in game
+    {
+      mistakeCount = mistakeCount + 1 ;
+      hangmanImageUpdate(mistakeCount);
+    }
   updateHiddenWord(hiddenWord);
 }
+
+
 
 // Function to update the timer display
 function updateTimerDisplay(elapsedTimeInSeconds) {
@@ -161,4 +174,4 @@ function newGame(event) {
   startTimer(); // Setting the current time when the game starts
 }
 
-// ... (rest of your code)
+
