@@ -10,25 +10,25 @@
 <body>
 <!-- DIV Right will be located on right side of screen while screen width is more in pixels then height -->
 <div class="split right">
-        <nav>
-            
+        <nav id="navigation">
             <a class="frame" href="http://" id="GitHub" target="_blank" title="Opens in new TAB" aria-label="Go to my GitHub (Opens in new TAB)"> Source Code</a>
             <a class="frame" href="http://" id="LinkedIn" target="_blank" title="Opens in new TAB" aria-label="Go to my LinkedIn page (Opens in new TAB)">LinkedIn</a>
-            <a class="frame" href="http://" id="Contact" target="_blank" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a>
+            <a class="frame" href="javascript:contactForm();" id="Contact" title="Opens in new TAB" aria-label="Go to Contact Form (Opens in new TAB)"> Contact</a>
         </nav>
         <img class="frame" id="image" src="assets/images/hanged.png" alt="Hangman Picture">
+        <div id="logPlayerActionsLogId"></div>
         <div id="gameWonText"></div>
         <form method="post" id="form">
             <label for="username" id="label">USERNAME</label>
             <input type="text" id="username" placeholder="Type Your Name here" required><br>
-            <input type="range" oninput="updateSliderDifficultyLabel();" id="difficultyRange" min="0" max="5" value="0">
+            <input type="range" oninput="updateSliderDifficultyLabel();" id="difficultyRange" min="0" max="4" value="0">
             <label for="difficulty_range" id="difficultyLabel">beginner</label>
             <button onclick="newGame(event)">START</button>
         </form>
 </div>
 <!-- DIV Left will be located on left side of screen while screen width is more in pixels then height -->
 <div class="split left">
-        <div class="frame instructions">
+        <div class="frame instructions" id="clearForContactForm">
             <h1 class="frame" id="timerDisplay">Hangman</h1>
             <section id="gameText">
                 <h2>Instructions</h2>
