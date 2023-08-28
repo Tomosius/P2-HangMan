@@ -1,11 +1,14 @@
 //declaring variables for future use
+let clearForContactFormText = document.getElementById('clearForContactForm').innerHTML;
+let gameText = document.getElementById("gameText").innerHTML;
+let timerInterval;
 let word = ""; //word to be guessed
 let mistakeCount = 0; //mistakes per game session, max 10, then game over
 let attempt = 0; //player guessing attempt
 let hiddenWord = []; //defining word to be guessed as an array
-let game = -1; // this is -1, as when player starts game, it will add 1, what will make it zero, so later it will be possible to read the full game log from the nested array log_player_actions
+let game = 0 ; // this is as when player starts game, it will add 1, what will make it zero, so later it will be possible to read the full game log from the nested array log_player_actions
 let username = ""; //player username
-let logLetterNestedArray = []; // logging all guessed letter for the current game
+let logLetterNestedCurrentGame = []; // logging all guessed letter for the current game
 let gameResult = 0; // win = 1, loose = 0
 let elapsedTimeInSeconds = ""; //timer to log player actions
 let difficulty = "beginner"; // declaring difficulty variable and setting it to the lowest value for default
@@ -14,13 +17,51 @@ let winsInRow = 0; //how many times player won in a row
 let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
 let clearForContactFormHTML = ""; // here will be stored information when creating contact form, so it can be revealed back to normal when clicking home page
-let logPlayerActionsLog = []; //information will be stored as follows:
+let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
   /* it will be 3 times nested aray:
-  [username,[game, difficulty,word [time,letter,correct/wrong?,hiddenword]],lost/won?]
+  [game, difficulty,word, [time,letter,correct/wrong?,hiddenWord]],lost/won?]
   */
 
+
+  /* let logPlayerActionsAll = [
+    ["Game", "Difficulty", "Word", "Lost or Won?",["Attempt", "Time", "Letter", "Guess", "Hidden Word"]],
+    [1, "beginner", "btomas", 1, [1, 10, "b", "correct", "B*****"]],
+    [1, "beginner", "btomas", 1, [2, 18, "o", "wrong", "B*****"]],
+    [1, "beginner", "btomas", 1, [3, 26, "t", "correct", "B*T***"]],
+    [1, "beginner", "btomas", 1, [4, 34, "a", "wrong", "B*T***"]],
+    [1, "beginner", "btomas", 1, [5, 42, "m", "wrong", "B*T***"]],
+    [1, "beginner", "btomas", 1, [6, 50, "i", "correct", "B*TI**"]],
+    [1, "beginner", "btomas", 1, [7, 58, "s", "correct", "B*TI*S"]],
+    [1, "beginner", "btomas", 1, [8, 66, "e", "correct", "B*TIES"]],
+    [2, "easy", "ejonas", 0, [1, 8, "e", "correct", "E******"]],
+    [2, "easy", "ejonas", 0, [2, 16, "a", "wrong", "E******"]],
+    [2, "easy", "ejonas", 0, [3, 24, "i", "correct", "E*I***"]],
+    [2, "easy", "ejonas", 0, [4, 32, "n", "correct", "ENI***"]],
+    [2, "easy", "ejonas", 0, [5, 40, "o", "correct", "ENIO**"]],
+    [2, "easy", "ejonas", 0, [6, 48, "s", "correct", "ENIOS*"]],
+    [3, "intermediate", "itomas", 1, [1, 5, "i", "correct", "I*****"]],
+    [3, "intermediate", "itomas", 1, [2, 11, "a", "wrong", "I*****"]],
+    [3, "intermediate", "itomas", 1, [3, 17, "u", "correct", "IU****"]],
+    [3, "intermediate", "itomas", 1, [4, 23, "e", "correct", "IUE***"]],
+    [4, "advanced", "atomas", 0, [1, 7, "a", "correct", "A*****"]],
+    [4, "advanced", "atomas", 0, [2, 14, "e", "wrong", "A*****"]],
+    [4, "advanced", "atomas", 0, [3, 21, "o", "correct", "AO****"]],
+    [4, "advanced", "atomas", 0, [4, 28, "i", "correct", "AOI***"]],
+    [4, "advanced", "atomas", 0, [5, 35, "t", "correct", "AOIT**"]],
+    [4, "advanced", "atomas", 0, [6, 42, "m", "correct", "AOITM*"]],
+    [4, "advanced", "atomas", 0, [7, 49, "s", "correct", "AOITMS"]]
+  ];
+  */
+
+
+
+
+
+
+
+
 //Array of difficulties
-const difficultyArray = [
+let difficultyArray = [
   "beginner",
   "easy",
   "intermediate",
@@ -31,7 +72,7 @@ const difficultyArray = [
 ];
 
 // Words list for each difficulty
-const wordArray = {
+let wordArray = {
   beginner: ["btomas","bjonas"],
   easy: ["etomas", "ejonas"],
   intermediate: ["itomas", "ijonas"],
@@ -42,7 +83,7 @@ const wordArray = {
 };
 
 // array of hangman image filenames to be used in the function hangmanUpdatePicture
-const hangmanImages = [
+let hangmanImages = [
   "h1.png",
   "h2.png",
   "h3.png",
@@ -125,7 +166,8 @@ function createAlphabet() {
 }
 
 // Function to handle a letter guess
-function letterGuess(letter, hiddenWord, word, logLetterNestedArray, elapsedTimeInSeconds) {
+function letterGuess(letter, hiddenWord, word, elapsedTimeInSeconds) {
+  attempt ++;
   letter = letter.toLowerCase(); // Convert letter to lowercase for comparison
   if (word.includes(letter)) {
     for (let i = 0; i < word.length; i++) {
@@ -135,29 +177,25 @@ function letterGuess(letter, hiddenWord, word, logLetterNestedArray, elapsedTime
       }
     }
     updateHiddenWord(hiddenWord);
-  } else {
+    logLetterNestedCurrentGame.push(attempt, elapsedTimeInSeconds, letter, "correct", hiddenWord.join());
+  } else if (!word.includes(letter)) {
     mistakeCount++; // Increment the global mistakeCount variable
     hangmanImageUpdate();
-  }
-
+    logLetterNestedCurrentGame.push(attempt, elapsedTimeInSeconds, letter, "wrong", hiddenWord.join());
+  };
 
   // Check if the word has been completely guessed
   if (hiddenWord.join('').toUpperCase() === word.toUpperCase()) {
     winsInRow++;
-    gameResult = 1;
-    document.getElementById("image").style.display = "none"; //hiding picture
-    document.getElementById("gameWonText").style.display = ""; //un-hiding congratulations text
-    let displayWinlocation = document.getElementById('gameWonText');
-    displayWinlocation.className = "image";
-    let displayWinText = ["You have WON ", winsInRow, " times in a Row !!!"]; // Use a different variable name
-    logPlayerActionsLog.push(logLetterNestedArray,"won");
-    gameOver();
+    gameResult = 1;    
     updateHiddenWord(hiddenWord);
+    gameOver();
+    logPlayerActionsAll.push(game, difficulty, word, "WON", logLetterNestedCurrentGame);
   }
   if (mistakeCount === 10) {
-    logPlayerActionsLog.push(logLetterNestedArray,"loose");
   winsInRow = 0;
   gameResult = 0;
+  logPlayerActionsAll.push(game, difficulty, word, "LOST", logLetterNestedCurrentGame);
   gameOver ();
   }
 }
@@ -172,7 +210,8 @@ function updateTimerDisplay(elapsedTimeInSeconds) {
 function startTimer() {
   startTime = Date.now(); // Set the start time to the current time
   // Set up a timer to update the display every second (1000 milliseconds)
-  setInterval(updateTimer, 1000);
+  timerInterval = setInterval(updateTimer, 1000);
+
 }
 
 // Function to calculate elapsed time and update the display
@@ -182,20 +221,31 @@ function updateTimer() {
   updateTimerDisplay(elapsedTimeInSeconds);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //function to be executed when the player starts a new game
 function newGame(event) {
-  //resetting all log values for currennt game
+  //resetting all log values for current game
+  attempt = 0;
   word = "";
   mistakeCount = 0;
   game ++; //indexing game played
-  //checking if this is first game, if so then we push username to logPlayerActionsLog aray
-  if (username !== logPlayerActionsLog[0]) {
-    logPlayerActionsLog.push
-  }
+  //checking if this is first game, if so then we push username to logPlayerActionsAll aray
   document.getElementById("image").src = "assets/images/new.png"; //esseting image for game
   event.preventDefault(); // Disable screen update
   document.getElementById("image").style.display = ""; //unhiding picture
-  document.getElementById("gameWonText").style.display = "none"; //hiding game won !
   sliderValue = document.getElementById("difficultyRange").value;
   if (username === "") { // Checking if there is already a username declared
     username = document.getElementById("username").value; // If there is no username declared, do so
@@ -245,30 +295,20 @@ function gameOver() {
   //Try Again will be shown by default each time
   gameTryAgainButton(buttonContainer, sliderValue);
   // code to check if player has LOST
-  if (gameResult == 0) { // player has lost
-    if (sliderValue == 0) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
-      document.getElementById('buttonTryAgainId').innerHTML = 'This is ALREADY EASIEST level of game, please try HARDER';
-    }
-    if (sliderValue > 0) { // will reveal Other button because it is not easiest level
-      sliderValueOther = sliderValue - 1;
-      gameTryAgainButtonOther (buttonContainer, sliderValueOther);
-    }
+  if (gameResult == 0 && sliderValue == 0) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
+    document.getElementById('buttonTryAgainId').innerHTML = 'This is ALREADY EASIEST level of game, please try HARDER';
+  }
+  else if (gameResult == 0 && sliderValue > 0) { // will reveal Other button because it is not easiest level
+    sliderValueOther = sliderValue - 1;
+    gameTryAgainButtonOther (buttonContainer, sliderValueOther);
   }
   //code to check if player has WON
-  if (gameResult == 1) { // player has lost
-    if (sliderValue == 6) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
-      document.getElementById('buttonTryAgainId').innerHTML = 'This is already HARDEST level of game, Congratulations';
-    } else {
-      if (sliderValue < document.getElementById('difficultyRange').max) { // will reveal Other button because it is not hardest level
-        sliderValueOther = sliderValue + 1;
-        gameTryAgainButtonOther (buttonContainer, sliderValueOther);
-      }
-      else { // will check if it is hardest unlocked level of game
-        sliderValueOther = sliderValue + 1;
-        document.getElementById('difficultyRange').max ++; //increasing max range on slider
-        gameTryAgainButtonOther (buttonContainer, sliderValueOther);
-      }
-    }
+  if (gameResult == 1 &&sliderValue == 6) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
+  document.getElementById('buttonTryAgainId').innerHTML = 'This is already HARDEST level of game, Congratulations';
+  } 
+  else if ( gameResult == 1 && sliderValue < document.getElementById('difficultyRange').max) { // will reveal Other button because it is not hardest level
+    sliderValueOther = sliderValue + 1;
+    gameTryAgainButtonOther (buttonContainer, sliderValueOther);
   }
 }
 
@@ -279,7 +319,7 @@ function gameTryAgainButton (buttonContainer, sliderValue) {
   buttonTryAgain.className = "frame gameOverButton";
   buttonTryAgain.id = "buttonTryAgainId";
   let currentDifficulty = difficultyArray[sliderValue];
-  buttonTryAgain.innerHTML = 'Try playing game again with same "' + currentDifficulty + '" difficulty'  + gameResult;
+  buttonTryAgain.innerHTML = 'Try playing game again with same "' + currentDifficulty + '" difficulty';
   // add event listener to button
   buttonTryAgain.addEventListener('click', newGame); 
   buttonContainer.appendChild(buttonTryAgain);
@@ -291,7 +331,7 @@ function gameTryAgainButtonOther (buttonContainer, sliderValueOther) {
     let buttonTryAgainOther = document.createElement('button');
     buttonTryAgainOther.className = "frame gameOverButton";
     let difficultyOther = difficultyArray[sliderValueOther];
-    buttonTryAgainOther.innerHTML = 'Try playing "' + difficultyOther + '" difficulty' + sliderValueOther;
+    buttonTryAgainOther.innerHTML = 'Try playing "' + difficultyOther + '" difficulty';
     // add event listener to button
     buttonTryAgainOther.addEventListener('click', newGameOther); 
     buttonContainer.appendChild(buttonTryAgainOther)
@@ -306,8 +346,8 @@ function newGameOther() {
 
 //loging all layer actions
 function logPlayerActions() {
-  logPlayerActionsLog.push(word, difficulty, game, logLetterNestedArray);
-};
+  logPlayerActionsAll.push(game,word, difficulty, logLetterNestedCurrentGame);
+}
 
 function contactForm() {
   //now will clear up HTML page so it is empty to create form
@@ -319,7 +359,7 @@ function contactForm() {
   //now will start creating Form by itself on left side
   createForm();
   rearrangeNavigation();
-  displayGameLog();
+  playerActionsTable ();
 }
 
 function createForm() { //function to create contact form
@@ -395,6 +435,7 @@ function rearrangeNavigation() {
 }
 
 function homePage () {
+  clearInterval(timerInterval); //stoping timer
   //sorting buttons to previous values
   let navigationContainer = document.getElementById("navigation");
   //geting id of links
@@ -415,9 +456,12 @@ function homePage () {
   //restoring home page text, image and form
   document.getElementById('form').style.display = "block"; // hide start game form
   document.getElementById('image').style.display = "block"; // hide image
-  document.getElementById('clearForContactForm').innerHTML = clearForContactFormHTML;
+  document.getElementById('clearForContactForm').innerHTML = clearForContactFormText;
+  document.getElementById('image').src = "assets/images/hanged.png";
+  document.getElementById("timerDisplay").innerHTML = "Hangman";
+
 }
 
-//testing
-
-
+function playerActionsTable() {
+ // need to create loops to put out game actions log to a table
+}

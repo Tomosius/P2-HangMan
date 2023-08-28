@@ -1,8 +1,10 @@
 # Hangman Game
+[Link to live page](https://tomosius.github.io/P2-HangMan/)
+
 
 Welcome to the Hangman Game! This is a simple web-based implementation of the classic Hangman word-guessing game. Players attempt to guess a hidden word by suggesting letters, with a limited number of incorrect guesses allowed before the hangman is fully drawn.
 
-![Hangman Game](assets/images/hanged.png)
+![Hangman Game](assets/images/mokup_devices.png)
 
 # Hangman Game Documentation
 
@@ -12,12 +14,6 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
 - [User Experience (UX)](#user-experience-ux)
 - [Design](#design)
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-  - [Gameplay](#gameplay)
-  - [Difficulty Levels](#difficulty-levels)
 - [Functions](#functions)
   - [hangmanImageUpdate](#hangmanimageupdate)
   - [updateSliderDifficultyLabel](#updatesliderdifficultylabel)
@@ -56,6 +52,8 @@ The Hangman game provides an engaging user experience through its intuitive inte
 
 ## Design
 
+### Page Layout
+
 The design of the Hangman game focuses on creating an appealing and user-friendly environment for players. Here are the design aspects that contribute to the overall look and feel of the game:
 
 ### Fonts
@@ -88,10 +86,39 @@ The game layout adapts gracefully to different screen sizes using media queries:
 
 These design elements come together to create an inviting and enjoyable atmosphere for players, making the Hangman game an engaging and visually appealing experience.
 
+### Compatibility
+Website was tested for appearance, functionality or responsiveness on these devices:
+* Ipad Pro 12.9"
+* Macbook Air 13"
+* Iphone 12
+All these devices have used Safari, Firefox and Google Chrome browsers
+### Manual Testing
+* Device compatibility
+
+| Device | Test | Result |
+| --- | --- | --- |
+| MacBook Air 13" | No appearance, responsiveness nor functionality issues. | Pass |
+| iPad Pro 12.9" | No appearance, responsiveness nor functionality issues. | Pass |
+| iPhone 8 | No appearance, responsiveness nor functionality issues. | Pass |
+
+
+* Browser Compatibility
+
+| Browser | Test | Result  |
+--- | --- | ---
+Google Chrome | No appearance, responsiveness nor functionality issues.| Pass
+Safari | No appearance, responsiveness nor functionality issues. | Pass
+Mozilla Firefox | Scrollbar is visible even though it should be hidden. <br>No responsiveness nor functionality issues.| Pass
+Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
+
+
+[Back to top ⇧](#rpsls)
+
 ## Introduction
 
 The Hangman Game is a web-based application that lets players enjoy the classic word-guessing game. It provides a user-friendly interface for players to select difficulty levels, guess letters, and challenge themselves with words of varying complexity.
 
+[Back to top ⇧](#rpsls)
 ## Features
 
 - Choose from different difficulty levels, ranging from beginner to legendary.
@@ -101,20 +128,7 @@ The Hangman Game is a web-based application that lets players enjoy the classic 
 - Player actions log to track each game's progress and outcomes.
 - Contact form for users to provide feedback or inquire.
 
-## Getting Started
-
-### Prerequisites
-
-- A modern web browser (e.g., Google Chrome, Mozilla Firefox).
-- A code editor for examining and modifying the source code.
-
-### Installation
-
-1. Clone the repository to your local machine:
-
-   ```bash
-   git clone https://github.com/your-username/hangman-game.git
-2. Open the index.html file in your web browser to start playing the game.
+[Back to top ⇧](#rpsls)
 
 ## Usage
 
@@ -123,8 +137,11 @@ The Hangman Game is a web-based application that lets players enjoy the classic 
 2. Click the "Start Game" button to begin. The game will display a hidden word as a series of underscores.
 3. Use the on-screen buttons to guess letters. Each correct guess will reveal the position of the letter in the word. Incorrect guesses will update the hangman image.
 4. The game ends when the word is fully revealed (win) or the hangman is completed (loss).
+5. User is presented only with first 5 levels of difficulty, after succeeding highest, one more will be revealed and so on, till Legendary difficulty is unlocked.
 
-## Difficulty Levels
+[Back to top ⇧](#rpsls)
+
+### Difficulty Levels
 The game offers the following difficulty levels:
 
 * Beginner
@@ -137,6 +154,8 @@ The game offers the following difficulty levels:
 
 Each level corresponds to a different set of words, with varying levels of complexity.
 
+[Back to top ⇧](#rpsls)
+
 ## Functions
 
 Here are the functions used in the Hangman game:
@@ -145,7 +164,7 @@ Here are the functions used in the Hangman game:
 This function updates the hangman image based on the current mistake count.
 
 ### updateSliderDifficultyLabel
-This function updates the displayed difficulty label based on the slider value.
+This function updates the displayed difficulty label (on HTML page) based on the slider value.
 
 ### chooseWord
 This function selects a random word based on the chosen difficulty level and initializes the hidden word array.
@@ -156,7 +175,7 @@ This function updates the displayed hidden word on the screen.
 ### createAlphabet
 This function creates and displays clickable alphabet buttons for letter guessing.
 
-###letterGuess
+### letterGuess
 This function handles a letter guess, updates the hidden word, and logs player actions.
 
 ### updateTimerDisplay
@@ -173,29 +192,62 @@ This function starts a new game, resetting various game-related variables and UI
 
 ### gameTryAgainButton
 This function displays the "Try Again" button on the game over screen.
+* If player was already playing EASIEST (**Beginner**) level, it will change button text contents accordingly
+* If player has won hardest (**Legendary**) level, text within button will congratulate player and will offer to try iit again
 
 ### gameTryAgainButtonOther
-This function displays the "Try Again" button with a different difficulty level on the game over screen.
+This function displays the "Try Again" button with a different difficulty level on the game over screen. When button pressed, will initiate function **newGameOther**
+* If player has lost, it will offer easier difficulty based on one player just jas lost
+* If player won, then button will offer harder difficulty to try
+* Function also checks, was it Beginner or Legendary difficulties, if so, this button will not be revealed
 
 ### newGameOther
 This function starts a new game with a different difficulty level.
 
 ### gameOver
-This function handles the game over state, including logging player actions and displaying appropriate buttons.
+This function handles the game over state, including logging player actions and displaying appropriate buttons. 
 
 ### logPlayerActions
 This function logs player actions, including the current game's progress and outcome.
 
 ### contactForm
-This function displays a contact form for user feedback or inquiries.
-createForm
-This function creates the contact form elements.
+**contact** hyperlink clicked in NAV section will triger function **contactForm**, which will initiate other functions to change layout of page feedback or inquiries. 
+### createForm
+This function creates the contact form elements, where player can fill details and post them.
 
 ### rearrangeNavigation
-This function rearranges navigation links based on the current page.
+This function rearranges navigation links based on the current page. Button **Contact** becomes **Home** page and will be moved to left
 
 ### homePage
-This function restores the homepage content and functionality.
+This function restores the homepage content and functionality:
+* Restores HomePage text and layout
+* Stops the times
+* Restores instructions
+* Restores main image to default
+By using function instead of manually refreshing page, player can keepp current game progress (win loose and etc).
+
 
 ### playerActionsTable
-This function is intended for a player actions table (implementation details not provided in the code snippet).
+This function is intended for a player actions table:
+* Each game log output is visible in table
+* Eacg game will have sub-table for every guessing attempt made by player
+
+[Back to top ⇧](#rpsls)
+
+## Technologies
+### Languages used
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+### Bootstrapping
+* Fonts were used from Google Fonts
+* Icons were used from fontawesome
+### Tools used
+* Gimp for cropping  and adjusting images
+* Visual Studio Code - as Code Editor
+* Git / GitHub for Version Control
+* Shields.io for badges used in README.md
+
+[Back to top ⇧](#rpsls)
