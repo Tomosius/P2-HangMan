@@ -353,7 +353,6 @@ function contactForm() {
   //now will clear up HTML page so it is empty to create form
   document.getElementById('form').style.display = "none"; // hide start game form
   document.getElementById('image').style.display = "none"; // hide image
-  clearForContactFormHTML = document.getElementById('clearForContactForm').innerHTML ;
   document.getElementById('clearForContactForm').innerHTML = "";
   // clearing left side where form will be located by default
   //now will start creating Form by itself on left side
@@ -365,6 +364,10 @@ function contactForm() {
 function createForm() { //function to create contact form
   // Create a form element
   let form = document.createElement("form");
+  form.className = "instructions";
+  //form.Id = "contactFormJavaScript";
+
+  form.action="https://formdump.codeinstitute.net";
 
   // Create a label and input for name
   let nameLabel = document.createElement("label");
@@ -372,7 +375,8 @@ function createForm() { //function to create contact form
   let nameInput = document.createElement("input");
   nameInput.type = "text";
   nameInput.name = "name";
-  nameInput.className = "frame";
+  nameInput.innerHTML = username;
+  nameInput.className = "frame gameOverButton";
   nameInput.required = true;
 
   // Create a label and input for email
@@ -381,7 +385,7 @@ function createForm() { //function to create contact form
   let emailInput = document.createElement("input");
   emailInput.type = "email";
   emailInput.name = "email";
-  emailInput.className = "frame";
+  emailInput.className = "frame gameOverButton";
   emailInput.required = true;
 
   // Create a label and textarea for text
@@ -389,14 +393,15 @@ function createForm() { //function to create contact form
   textLabel.textContent = "Text:";
   let textArea = document.createElement("textarea");
   textArea.name = "text";
-  textArea.className = "frame";
-  textArea.style.height = "30vh";
+  textArea.className = "frame gameOverButton";
+  textArea.style.height = "50vh";
   textArea.required = true;
 
   // Create a submit button
   let submitButton = document.createElement("button");
   submitButton.type = "submit";
   submitButton.textContent = "Send";
+
 
   // Append elements to the form
   form.appendChild(nameLabel);

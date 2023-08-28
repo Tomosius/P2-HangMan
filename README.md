@@ -13,7 +13,22 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
 - [Introduction](#introduction)
 - [User Experience (UX)](#user-experience-ux)
 - [Design](#design)
+    - [Page Layout](#page-layout)
+    - [Fonts](#fonts)
+    - [Color Palette](#color-palette)
+    - [Responsiveness](#responsiveness)
+- [Testing](#testing)
+    - [Compatibility](#compatibility)
+    - [Manual Testing](#manual-testing)
+    - [Browser Compatibility](#browser-compatibility)
+- [Validation](#validation)
+- [Technologies](#technologies)
+    - [Languages used](#languages-used)
+    - [Bootstrapping](#bootstrapping)
+    - [Tools used](#tools-used)
 - [Features](#features)
+    - [GamePlay](#gameplay)
+    - [Difficulty Leveels](#difficulty-levels)
 - [Functions](#functions)
   - [hangmanImageUpdate](#hangmanimageupdate)
   - [updateSliderDifficultyLabel](#updatesliderdifficultylabel)
@@ -35,8 +50,8 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
   - [rearrangeNavigation](#rearrangenavigation)
   - [homePage](#homepage)
   - [playerActionsTable](#playeractionstable)
-- [Contributing](#contributing)
-- [License](#license)
+- [Known Bugs](#known-bugs)
+
 
 
 # Hangman Game Documentation
@@ -86,6 +101,7 @@ The game layout adapts gracefully to different screen sizes using media queries:
 
 These design elements come together to create an inviting and enjoyable atmosphere for players, making the Hangman game an engaging and visually appealing experience.
 
+## Testing
 ### Compatibility
 Website was tested for appearance, functionality or responsiveness on these devices:
 * Ipad Pro 12.9"
@@ -102,7 +118,7 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 | iPhone 8 | No appearance, responsiveness nor functionality issues. | Pass |
 
 
-* Browser Compatibility
+### Browser Compatibility
 
 | Browser | Test | Result  |
 --- | --- | ---
@@ -110,13 +126,26 @@ Google Chrome | No appearance, responsiveness nor functionality issues.| Pass
 Safari | No appearance, responsiveness nor functionality issues. | Pass
 Mozilla Firefox | Scrollbar is visible even though it should be hidden. <br>No responsiveness nor functionality issues.| Pass
 Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
-
+## Validation
+![W3C HTML Validation](assets/images/w3c_html.png)
+![W3C CSS Validation](assets/images/w3c_css.png)
 
 [Back to top ⇧](#rpsls)
+## Technologies
+### Languages used
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
 
-## Introduction
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-The Hangman Game is a web-based application that lets players enjoy the classic word-guessing game. It provides a user-friendly interface for players to select difficulty levels, guess letters, and challenge themselves with words of varying complexity.
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+### Bootstrapping
+* Fonts were used from Google Fonts
+* Icons Icomns were not useed as intention of all layout - handwriten oon paper style
+### Tools used
+* Gimp for cropping  and adjusting images
+* Visual Studio Code - as Code Editor
+* Git / GitHub for Version Control
+* Shields.io for badges used in README.md
 
 [Back to top ⇧](#rpsls)
 ## Features
@@ -234,20 +263,12 @@ This function is intended for a player actions table:
 
 [Back to top ⇧](#rpsls)
 
-## Technologies
-### Languages used
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
-
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-### Bootstrapping
-* Fonts were used from Google Fonts
-* Icons were used from fontawesome
-### Tools used
-* Gimp for cropping  and adjusting images
-* Visual Studio Code - as Code Editor
-* Git / GitHub for Version Control
-* Shields.io for badges used in README.md
-
-[Back to top ⇧](#rpsls)
+## Known Bugs
+### Try harder level button
+When player wins, second button does not show harder level difficulty, it shows it **"undefined"**, but at the same time when layer looses, same script is used and then easier level is displayed correctly.
+![Button Mistake](assets/images/button_mistake.png)
+### Choosing Harder level with second button
+When player wins and presses second button, so javascript automatically chooses harder level, after 2 times in a row it will jump to hardest level skipping all below. Lets say player started on **Begginer**, won, then clicked second button to play **Easy**, won, gain presses same button, will get **Intermediate** level, and if he wins and presses same button, game will skip **Advanced** and will choose **Expert**. 
+ave tried with different browsers, debugging, console.log, all indexes are fine, but somehow it just jumps. It can be related on game lag on my personal computer or code mistake
+### Game logs issue
+Game does not pushed player actions log to an array. When i debug, that array is empty. This is why on last page i can not generate log output table.
