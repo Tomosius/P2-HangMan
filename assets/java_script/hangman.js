@@ -18,47 +18,6 @@ let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
 let clearForContactFormHTML = ""; // here will be stored information when creating contact form, so it can be revealed back to normal when clicking home page
 let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
-  /* it will be 3 times nested aray:
-  [game, difficulty,word, [time,letter,correct/wrong?,hiddenWord]],lost/won?]
-  */
-
-
-  /* let logPlayerActionsAll = [
-    ["Game", "Difficulty", "Word", "Lost or Won?",["Attempt", "Time", "Letter", "Guess", "Hidden Word"]],
-    [1, "beginner", "btomas", 1, [1, 10, "b", "correct", "B*****"]],
-    [1, "beginner", "btomas", 1, [2, 18, "o", "wrong", "B*****"]],
-    [1, "beginner", "btomas", 1, [3, 26, "t", "correct", "B*T***"]],
-    [1, "beginner", "btomas", 1, [4, 34, "a", "wrong", "B*T***"]],
-    [1, "beginner", "btomas", 1, [5, 42, "m", "wrong", "B*T***"]],
-    [1, "beginner", "btomas", 1, [6, 50, "i", "correct", "B*TI**"]],
-    [1, "beginner", "btomas", 1, [7, 58, "s", "correct", "B*TI*S"]],
-    [1, "beginner", "btomas", 1, [8, 66, "e", "correct", "B*TIES"]],
-    [2, "easy", "ejonas", 0, [1, 8, "e", "correct", "E******"]],
-    [2, "easy", "ejonas", 0, [2, 16, "a", "wrong", "E******"]],
-    [2, "easy", "ejonas", 0, [3, 24, "i", "correct", "E*I***"]],
-    [2, "easy", "ejonas", 0, [4, 32, "n", "correct", "ENI***"]],
-    [2, "easy", "ejonas", 0, [5, 40, "o", "correct", "ENIO**"]],
-    [2, "easy", "ejonas", 0, [6, 48, "s", "correct", "ENIOS*"]],
-    [3, "intermediate", "itomas", 1, [1, 5, "i", "correct", "I*****"]],
-    [3, "intermediate", "itomas", 1, [2, 11, "a", "wrong", "I*****"]],
-    [3, "intermediate", "itomas", 1, [3, 17, "u", "correct", "IU****"]],
-    [3, "intermediate", "itomas", 1, [4, 23, "e", "correct", "IUE***"]],
-    [4, "advanced", "atomas", 0, [1, 7, "a", "correct", "A*****"]],
-    [4, "advanced", "atomas", 0, [2, 14, "e", "wrong", "A*****"]],
-    [4, "advanced", "atomas", 0, [3, 21, "o", "correct", "AO****"]],
-    [4, "advanced", "atomas", 0, [4, 28, "i", "correct", "AOI***"]],
-    [4, "advanced", "atomas", 0, [5, 35, "t", "correct", "AOIT**"]],
-    [4, "advanced", "atomas", 0, [6, 42, "m", "correct", "AOITM*"]],
-    [4, "advanced", "atomas", 0, [7, 49, "s", "correct", "AOITMS"]]
-  ];
-  */
-
-
-
-
-
-
-
 
 //Array of difficulties
 let difficultyArray = [
@@ -128,7 +87,6 @@ function chooseWord(difficulty) {
     for (let i = 0; i < word.length; i++) {
     hiddenWord.push("*");
     }
-
   // Initialize the hiddenWord array with underscores
 return word; // Return the chosen word
 }
@@ -183,7 +141,6 @@ function letterGuess(letter, hiddenWord, word, elapsedTimeInSeconds) {
     hangmanImageUpdate();
     logLetterNestedCurrentGame.push(attempt, elapsedTimeInSeconds, letter, "wrong", hiddenWord.join());
   };
-
   // Check if the word has been completely guessed
   if (hiddenWord.join('').toUpperCase() === word.toUpperCase()) {
     winsInRow++;
@@ -220,20 +177,6 @@ function updateTimer() {
   let elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000);
   updateTimerDisplay(elapsedTimeInSeconds);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //function to be executed when the player starts a new game
 function newGame(event) {
@@ -366,9 +309,7 @@ function createForm() { //function to create contact form
   let form = document.createElement("form");
   form.className = "instructions";
   //form.Id = "contactFormJavaScript";
-
   form.action="https://formdump.codeinstitute.net";
-
   // Create a label and input for name
   let nameLabel = document.createElement("label");
   nameLabel.textContent = "Name:";
@@ -378,7 +319,6 @@ function createForm() { //function to create contact form
   nameInput.innerHTML = username;
   nameInput.className = "frame gameOverButton";
   nameInput.required = true;
-
   // Create a label and input for email
   let emailLabel = document.createElement("label");
   emailLabel.textContent = "Email:";
@@ -387,7 +327,6 @@ function createForm() { //function to create contact form
   emailInput.name = "email";
   emailInput.className = "frame gameOverButton";
   emailInput.required = true;
-
   // Create a label and textarea for text
   let textLabel = document.createElement("label");
   textLabel.textContent = "Text:";
@@ -396,13 +335,10 @@ function createForm() { //function to create contact form
   textArea.className = "frame gameOverButton";
   textArea.style.height = "50vh";
   textArea.required = true;
-
   // Create a submit button
   let submitButton = document.createElement("button");
   submitButton.type = "submit";
   submitButton.textContent = "Send";
-
-
   // Append elements to the form
   form.appendChild(nameLabel);
   form.appendChild(nameInput);
@@ -414,8 +350,7 @@ function createForm() { //function to create contact form
   form.appendChild(textArea);
   form.appendChild(document.createElement("br"));
   form.appendChild(submitButton);
-
-  // Append the form to a container (e.g., a div with id "formContainer")
+  // Append the form to a container
   document.getElementById("clearForContactForm").appendChild(form);
 }
 
@@ -464,7 +399,6 @@ function homePage () {
   document.getElementById('clearForContactForm').innerHTML = clearForContactFormText;
   document.getElementById('image').src = "assets/images/hanged.png";
   document.getElementById("timerDisplay").innerHTML = "Hangman";
-
 }
 
 function playerActionsTable() {
