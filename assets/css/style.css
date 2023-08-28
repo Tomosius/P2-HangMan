@@ -84,14 +84,14 @@ nav a:hover {
     margin-right: auto;
     object-fit: contain;
 }
-form  {
+#startGameForm  {
     height: 30vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
     overflow: hidden;
 
 }
-form label, input, button{
+#startGameForm label, input, button{
     margin-top: 2vh;
     accent-color: #403e41;
     /* font-size: 2.3vw; */
@@ -200,14 +200,14 @@ form label, input, button{
         margin-right: auto;
         object-fit: contain;
     }
-    form  {
+    #startGameForm  {
         height: 20vh;
         padding-top: 2vh;
         padding-bottom: 2vh;
         overflow: hidden;
     
     }
-    form label, input, button{
+    #startGameForm label, input, button{
         margin-top: 1vh;
         accent-color: #403e41;
         /* font-size: 2.3vw; */
