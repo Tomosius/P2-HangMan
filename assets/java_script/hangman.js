@@ -333,12 +333,13 @@ function createForm() { //function to create contact form
   let textArea = document.createElement("textarea");
   textArea.name = "text";
   textArea.className = "frame gameOverButton";
-  textArea.style.height = "50vh";
+  textArea.style.height = "40vh";
   textArea.required = true;
   // Create a submit button
   let submitButton = document.createElement("button");
   submitButton.type = "submit";
   submitButton.textContent = "Send";
+  submitButton.className = "gameOverButton";
   // Append elements to the form
   form.appendChild(nameLabel);
   form.appendChild(nameInput);
@@ -352,6 +353,16 @@ function createForm() { //function to create contact form
   form.appendChild(submitButton);
   // Append the form to a container
   document.getElementById("clearForContactForm").appendChild(form);
+  document.getElementById("clearForContactForm").style.width = "96vw";
+  document.getElementById("clearForContactForm").style.height = "80vh";
+  //document.getElementById("clearForContactForm").style.marginTop = "-38vh"; 15
+
+  if (window.innerWidth < 450 && window.matchMedia("(orientation: portrait)").matches) {
+    document.getElementById("clearForContactForm").style.marginTop = "-38vh";
+  } else {
+    document.getElementById("clearForContactForm").style.marginTop = "15vh";
+  }
+
 }
 
 function rearrangeNavigation() {
@@ -367,40 +378,14 @@ function rearrangeNavigation() {
     navigationContainer.removeChild(contactLink);
   // changing contact to home button
   contactLink.innerHTML = "Home Page";
-  contactLink.href="javascript:homePage();"; //changing what function will be called when clicking home Button
+  contactLink.href="index.html"; //changing what function will be called when clicking home Button
   // rearanging links, so home page is first
   navigationContainer.appendChild(contactLink);
   navigationContainer.appendChild(linkedinLink);
   navigationContainer.appendChild(githubLink);
 }
 
-function homePage () {
-  clearInterval(timerInterval); //stoping timer
-  //sorting buttons to previous values
-  let navigationContainer = document.getElementById("navigation");
-  //geting id of links
-  let githubLink = document.getElementById("GitHub");
-  let linkedinLink = document.getElementById("LinkedIn");
-  let contactLink = document.getElementById("Contact");
-  // removing links from container, so later will append them as children in different order
-  navigationContainer.removeChild(githubLink);
-    navigationContainer.removeChild(linkedinLink);
-    navigationContainer.removeChild(contactLink);
-  // changing contact to home button
-  contactLink.innerHTML = "Contact";
-  contactLink.href="javascript:contactForm();"; //changing what function will be called when clicking home Button
-  // rearanging links, so contact page is last
-  navigationContainer.appendChild(linkedinLink);
-  navigationContainer.appendChild(githubLink);
-  navigationContainer.appendChild(contactLink);
-  //restoring home page text, image and form
-  document.getElementById('form').style.display = "block"; // hide start game form
-  document.getElementById('image').style.display = "block"; // hide image
-  document.getElementById('clearForContactForm').innerHTML = clearForContactFormText;
-  document.getElementById('image').src = "assets/images/hanged.png";
-  document.getElementById("timerDisplay").innerHTML = "Hangman";
-}
 
-function playerActionsTable() {
+function playerActionsTable() { //create table to show player actions
  // need to create loops to put out game actions log to a table
 }
