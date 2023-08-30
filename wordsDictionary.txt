@@ -1,0 +1,226 @@
+This is just Dictionary and description for words...
+
+**Beginner:**
+- cat: A small domesticated carnivorous mammal often kept as a pet.
+- dog: A domesticated carnivorous mammal commonly kept as a loyal companion and pet.
+- hat: A head-covering often worn for protection from the sun or as a fashion accessory.
+- bat: A flying mammal known for its use of echolocation to navigate and find prey.
+- rat: A small rodent known for its rapid reproduction and presence in both urban and rural areas.
+- sun: The star at the center of our solar system, providing light and heat to Earth.
+- run: The act of moving quickly on foot, often involving a swift pace.
+- pen: A writing instrument used for creating marks on paper or other surfaces.
+- hop: A small jump or leap, typically done on one foot.
+- top: The highest point or part of something; also, a spinning toy.
+- fan: A device that generates air movement and is used to cool the surrounding area.
+- mat: A flat piece of material used as a floor covering or for wiping feet.
+- tap: To strike or hit gently, often to create a sound or signal.
+- can: A container often made of metal or plastic, used to store and transport goods.
+- map: A visual representation of an area, typically showing geographical features.
+- cup: A small open container used for drinking liquids, usually with a handle.
+- rug: A textile floor covering, often used to insulate and decorate rooms.
+- nut: A hard-shelled seed that is typically edible and often used as a snack.
+- log: A piece of wood that has been cut and prepared for use, especially as fuel.
+- bed: A piece of furniture used for sleeping and resting.
+- jam: A sweet spread made from fruit and sugar, often eaten with bread.
+- lip: The soft and fleshy part that forms the edge of the mouth.
+- pig: An omnivorous mammal often raised for its meat (pork).
+- pot: A round, deep container used for cooking or holding liquids.
+- leg: The limb of an animal or human that supports the body when standing or walking.
+- car: A motor vehicle with four wheels used for transportation.
+- bus: A large motor vehicle designed to carry passengers.
+- cap: A head covering with a visor, often worn for protection or style.
+- tag: A label or marker used to identify something.
+- bug: An insect, often used informally to refer to any small creature.
+
+**Easy:**
+- apple: A round fruit with firm flesh and a typically red or green skin.
+- chair: A piece of furniture designed for sitting on, often with a backrest and legs.
+- dance: A rhythmic movement of the body often accompanied by music.
+- happy: Feeling or showing pleasure, contentment, or joy.
+- ocean: A vast body of saltwater covering most of Earth's surface.
+- queen: The female ruler of a kingdom or nation.
+- laugh: The sound produced by a person or animal in response to humor or joy.
+- phone: A device used for voice communication over long distances.
+- river: A natural watercourse that flows toward an ocean, sea, lake, or another river.
+- smile: An expression that involves turning up the corners of the mouth to show happiness.
+- table: A piece of furniture with a flat surface, often used for eating or working.
+- under: Positioned beneath or lower than something else.
+- water: A clear, colorless liquid essential for life and found abundantly on Earth.
+- young: In the early stages of life, development, or existence.
+- panda: A large black-and-white bear native to China, known for its distinctive markings.
+- beach: The shore of a body of water, often covered in sand or pebbles.
+- cloud: A visible mass of water droplets or ice crystals suspended in the atmosphere.
+- green: The color between blue and yellow; also associated with nature and vegetation.
+- jelly: A semi-solid, often sweet substance made from fruit juice and sugar.
+- tiger: A large carnivorous cat known for its distinctive orange coat with black stripes.
+- lemon: A yellow citrus fruit known for its sour taste and use in flavoring.
+- plant: A living organism that typically photosynthesizes and has roots, stems, and leaves.
+- robot: A machine designed to perform tasks autonomously or through remote control.
+- snake: A long, legless reptile often characterized by its slithering movement.
+- wheel: A circular object that rotates on an axle and is used for transportation or machinery.
+- dress: A one-piece garment typically worn by females, covering the body from shoulders to legs.
+- bread: A staple food made from dough that is baked until it is firm and brown.
+- flute: A musical instrument with a narrow tube and holes that are played by blowing air.
+- hotel: A place that provides lodging and often other amenities for travelers.
+- music: Artistic sound produced by voices or instruments, often conveying emotion.
+
+**Intermediate:**
+- balloon: An inflatable bag usually made of rubber or latex, often used as decoration.
+- bicycle: A two-wheeled vehicle propelled by pedals, commonly used for transportation.
+- chicken: A domesticated bird raised for its meat and eggs, commonly consumed worldwide.
+- diamond: A precious gemstone composed of carbon, prized for its brilliance and value.
+- elephant: A large, herbivorous mammal with a trunk and tusks, known for its intelligence.
+- fantasy: A genre of fiction characterized by imaginative and magical elements.
+- gravity: The force that attracts two masses toward each other, responsible for weight.
+- horizon: The apparent line where the earth's surface meets the sky, creating a visual boundary.
+- jasmine: A fragrant flowering plant often used in perfumes and teas.
+- lantern: A portable light source often enclosed in a transparent case.
+- mountain: A large landform rising prominently above its surroundings.
+- necklace: A piece of jewelry worn around the neck, often consisting of beads or pendants.
+- orchestra: A large ensemble of musicians playing various instruments together.
+- pineapple: A tropical fruit with a spiky skin and sweet, juicy flesh.
+- question: A sentence used to inquire about information, often seeking an answer.
+- scissors: A cutting tool with two blades hinged together, used for cutting various materials.
+- treasure: Valuable items or wealth, often hidden or stored for safekeeping.
+- umbrella: A portable device used to provide protection from rain or sunlight.
+- village: A small settlement usually located in a rural or less urban area.
+- waterfall: A natural phenomenon where water flows over a vertical drop in a river or stream.
+- xylophone: A musical instrument consisting of wooden bars that are struck to produce sound.
+- zucchini: A type of summer squash commonly used in cooking.
+- butterfly: An insect with colorful wings and a distinct life cycle of metamorphosis.
+- fireplace: A structure designed to contain a fire for heating or ambiance.
+- kangaroo: A marsupial known for its powerful hind legs and pouch for carrying young.
+- labyrinth: A complex, intricate network of paths or passages; often used metaphorically.
+- mushroom: A spore-bearing fungus with a distinctive cap and stem, often edible.
+- octopus: A marine creature with a soft body and eight arms bearing suction cups.
+- porcupine: A rodent with sharp quills on its back that it uses for defense.
+- raccoon: A mammal known for its distinctive mask-like markings and ringed tail.
+
+**Advanced:**
+- astronomical: Relating to astronomy, the scientific study of celestial objects and phenomena.
+- bittersweet: Having a mixture of both positive and negative emotions or experiences.
+- conversation: A verbal exchange of ideas, opinions, or information between individuals.
+- detrimental: Causing harm or damage; having a negative effect.
+- embodiment: The representation or expression of something in a physical or tangible form.
+- flamboyant: Strikingly bold, colorful, or extravagant in appearance or behavior.
+- gastronomic: Pertaining to the art and science of good eating; related to food and cooking.
+- harmonious: Marked by agreement, balance, or pleasing arrangement of parts.
+- indefatigable: Tireless and persistent in one's efforts or endeavors.
+- jubilant: Expressing great joy, happiness, or triumph.
+- kaleidoscope: An optical instrument with mirrors and colored pieces that creates changing symmetrical patterns.
+- labyrinthine: Intricate, complex, and convoluted, often like a maze.
+- melancholic: Feeling or expressing a deep and pensive sadness or sorrow.
+- nostalgia: A sentimental longing or wistful affection for the past.
+- ostentatious: Intended to attract attention, admiration, or envy; showy.
+- paradigm: A typical example or pattern that serves as a model or framework.
+- quintessential: Representing the most typical or purest form of something.
+- resplendent: Shining with great brightness or beauty; splendid.
+- serendipity: The occurrence of fortunate events by chance in a happy or beneficial way.
+- transcendence: The state of being beyond ordinary limits; exceeding the usual or ordinary.
+- ubiquitous: Present, appearing, or found everywhere at the same time.
+- venerable: Deserving respect due to age, wisdom, or character.
+- whimsical: Playfully quaint or fanciful, often in an amusing or capricious manner.
+- xenophobia: A strong fear or aversion toward people from other countries or cultures.
+- yearning: A strong feeling of longing or desire, often tinged with sadness.
+- zenith: The highest point or culmination; the point in the sky directly above an observer.
+- alacrity: Eagerness, promptness, or willingness in responding to or performing tasks.
+- balderdash: Nonsense or foolish talk; absurd or meaningless language.
+- cacophony: A harsh, discordant mixture of sounds.
+- debacle: A sudden and disastrous failure or collapse.
+
+**Expert:**
+- cacophonous: Characterized by a harsh, jarring mixture of sounds.
+- ephemeral: Lasting for a very short time; fleeting or transitory.
+- garrulous: Excessively talkative, especially on trivial matters.
+- iconoclast: A person who attacks or challenges traditional beliefs or institutions.
+- juxtaposition: The act or placement of two things (usually contrasting) together for comparison.
+- mellifluous: Pleasingly smooth and musical to the ear.
+- obfuscate: To deliberately make something unclear or confusing.
+- paradigmatic: Serving as a typical example or pattern of something.
+- quixotic: Extremely idealistic, unrealistic, and impractical.
+- recalcitrant: Resisting authority or control; stubbornly defiant.
+- sesquipedalian: Characterized by long words; given to using long words.
+- truculent: Eager to argue or fight; aggressively defiant.
+- ubiquitousness: The state of being everywhere at the same time; omnipresence.
+- verisimilitude: The appearance or semblance of truth; realism.
+- xenophobically: In a manner characterized by a fear or dislike of foreigners or foreign things.
+- yesteryear: The time in the past, often nostalgic or romanticized.
+- zealousness: Intense passion, enthusiasm, or fervor.
+- antediluvian: Extremely old or ancient, often humorously referring to a time before the biblical Flood.
+- beneficence: The quality of doing good or showing kindness.
+- cogent: Convincing or compelling in terms of argument or presentation.
+- delineate: To describe or portray something precisely; to outline or define.
+- ephemeralness: The state of being temporary or short-lived.
+- fractious: Easily irritated, quarrelsome, or prone to causing discord.
+- grandiloquent: Using high-sounding language to impress or exaggerate.
+- histrionic: Excessively dramatic or emotional in behavior or speech.
+- intransigent: Uncompromising and unwilling to change one's views or stance.
+- jettison: To discard or abandon something, often in a critical situation.
+- knavery: Dishonest or tricky behavior; deceitful actions.
+- lugubrious: Mournful, gloomy, or excessively sad.
+- magnanimous: Generous and forgiving, especially toward a rival or less powerful person.
+
+**Master:**
+- capriciousness: The quality of being unpredictable or impulsive.
+- defenestration: The act of throwing someone or something out of a window.
+- equivocal: Open to more than one interpretation; ambiguous or unclear.
+- felicific: Causing or promoting happiness or well-being.
+- grandiosity: Exaggerated sense of one's own importance or abilities; grandiose behavior.
+- hermeneutics: The theory and methodology of interpretation, especially of texts.
+- indefatigability: The quality of being incapable of becoming tired; tirelessness.
+- juxtapositional: Relating to the act of placing two things together for contrasting effect.
+- kinesiology: The study of the mechanics of body movement and muscle activity.
+- lugubriousness: The state of being mournful, dismal, or sorrowful.
+- magniloquence: Grand or lofty speech or writing; pompous language.
+- noctambulation: Sleepwalking; the act of walking while asleep.
+- obnubilate: To darken or obscure; to make unclear or indistinct.
+- perfunctory: Done as a matter of routine or duty; lacking enthusiasm or interest.
+- quiddity: The inherent nature or essence of something; its distinctive quality.
+- refulgent: Shining brightly; radiant or resplendent.
+- supererogatory: Beyond what is required or expected; going above and beyond.
+- transcendentalism: A philosophical movement emphasizing spiritual, intuitive thought over reason.
+- unputdownable: So engaging or compelling that one cannot stop reading or watching.
+- verisimilar: Having the appearance of truth or reality; lifelike.
+- widdershins: In a direction contrary to the natural or usual way; counterclockwise.
+- xenogenetic: Derived from foreign or external sources.
+- ylem: A hypothetical substance from which all matter is formed.
+- zephyr: A gentle, mild breeze or wind.
+- abecedarian: Arranged alphabetically; related to the alphabet.
+- brachylogy: The use of an abbreviated or condensed form of expression.
+- cachinnate: To laugh loudly or immoderately.
+- dalliance: A brief romantic or sexual involvement.
+- ebullient: Enthusiastic, cheerful, or full of energy.
+- fructuous: Producing fruit or results; fruitful.
+
+**Legendary:**
+- antitransubstantiate: The act of denying the transformation of substances in the Eucharist into the body and blood of Christ.
+- brontide: A low rumbling sound, similar to distant thunder.
+- catoptromancy: Divination or fortune-telling using a mirror.
+- deipnosophist: A person skilled in the art of conversation at dinner parties.
+- effervescence: Bubbling or fizzing; the state of being lively and enthusiastic.
+- floccinaucinihilipilification: The act of regarding something as worthless or unimportant.
+- gastromancy: Divination by interpreting sounds produced by the stomach.
+- hippopotomonstrosesquipedaliophobia: A humorous term for the fear of long words.
+- inconubinage: A legal state of cohabitation between a man and a woman without marriage.
+- jentacular: Relating to breakfast; occurring in the morning.
+- keraunothnetophobia: The fear of falling man-made satellites or other debris from the sky.
+- logomachy: A dispute or argument about words.
+- macroscian: Inhabitants of the Earth who live in a region where shadows fall in different directions.
+- nociceptive: Relating to the perception of pain.
+- omphaloskepsis: The contemplation of one's navel as an aid to meditation.
+- peristeronic: Resembling or related to pigeons.
+- quomodo: In what manner; how.
+- rhabdology: The art of calculating using rods or sticks, or a branch of divination.
+- sarcophagous: Feeding on flesh; carnivorous.
+- thalassophile: A lover of the sea; someone who is fond of the ocean.
+- uroboros: A serpent or dragon eating its own tail, symbolizing cyclicality.
+- ventripotent: Having a large belly; greedy.
+- witzelsucht: A tendency to make inappropriate or facetious jokes.
+- xenobombulate: To make a buzzing or humming noise, like bees.
+- yarborough: A hand in cards with no card above a nine.
+- zythum: An ancient Egyptian malt beverage.
+- amphiscians: People living in a region where the sun shines directly overhead at noon.
+- boustrophedon: A form of ancient writing where the text alternates direction in a zigzag pattern.
+- carcharhinus: A genus of requiem sharks.
+- dactylion: The tip of the middle finger.
+
