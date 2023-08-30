@@ -1,6 +1,4 @@
 //declaring variables for future use
-let clearForContactFormText = document.getElementById('clearForContactForm').innerHTML;
-let gameText = document.getElementById("gameText").innerHTML;
 let timerInterval;
 let word = ""; //word to be guessed
 let mistakeCount = 0; //mistakes per game session, max 10, then game over
@@ -10,13 +8,11 @@ let game = 0 ; // this is as when player starts game, it will add 1, what will m
 let username = ""; //player username
 let logLetterNestedCurrentGame = []; // logging all guessed letter for the current game
 let gameResult = 0; // win = 1, loose = 0
-let elapsedTimeInSeconds = ""; //timer to log player actions
 let difficulty = "beginner"; // declaring difficulty variable and setting it to the lowest value for default
 let startTime = 0; //setting to zero timer when the game starts
 let winsInRow = 0; //how many times player won in a row
 let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
-let clearForContactFormHTML = ""; // here will be stored information when creating contact form, so it can be revealed back to normal when clicking home page
 let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
 
 //Array of difficulties
@@ -32,28 +28,14 @@ let difficultyArray = [
 
 // Words list for each difficulty
 let wordArray = {
-  beginner: ["btomas","bjonas"],
-  easy: ["etomas", "ejonas"],
-  intermediate: ["itomas", "ijonas"],
-  advanced: ["atomas", "ajonas"],
-  expert: ["xtomas", "xjonas"],
-  master: ["mtomas", "mjonas"],
-  legendary: ["ltomas", "ljonas"],
+  beginner: ["cat", "dog", "hat", "bat", "rat", "sun", "run", "pen", "hop", "top", "fan", "mat", "tap", "can", "map", "cup", "rug", "nut", "log", "bed", "jam", "lip", "pig", "pot", "leg", "car", "bus", "cap", "tag", "bug"],
+  easy: ["apple", "chair", "dance", "happy", "ocean", "queen", "laugh", "phone", "river", "smile", "table", "under", "water", "young", "panda", "beach", "cloud", "green", "jelly", "tiger", "lemon", "plant", "robot", "snake", "wheel", "dress", "bread", "flute", "hotel", "music"],
+  intermediate: ["balloon", "bicycle", "chicken", "diamond", "elephant", "fantasy", "gravity", "horizon", "jasmine", "lantern", "mountain", "necklace", "orchestra", "pineapple", "question", "scissors", "treasure", "umbrella", "village", "waterfall", "xylophone", "zucchini", "butterfly", "fireplace", "kangaroo", "labyrinth", "mushroom", "octopus", "porcupine", "raccoon"],
+  advanced: ["astronomical", "bittersweet", "conversation", "detrimental", "embodiment", "flamboyant", "gastronomic", "harmonious", "indefatigable", "jubilant", "kaleidoscope", "labyrinthine", "melancholic", "nostalgia", "ostentatious", "paradigm", "quintessential", "resplendent", "serendipity", "transcendence", "ubiquitous", "venerable", "whimsical", "xenophobia", "yearning", "zenith", "alacrity", "balderdash", "cacophony", "debacle"],
+  expert: ["cacophonous", "ephemeral", "garrulous", "iconoclast", "juxtaposition", "mellifluous", "obfuscate", "paradigmatic", "quixotic", "recalcitrant", "sesquipedalian", "truculent", "ubiquitousness", "verisimilitude", "xenophobically", "yesteryear", "zealousness", "antediluvian", "beneficence", "cogent", "delineate", "ephemeralness", "fractious", "grandiloquent", "histrionic", "intransigent", "jettison", "knavery", "lugubrious", "magnanimous"],
+  master: ["capriciousness", "defenestration", "equivocal", "felicific", "grandiosity", "hermeneutics", "indefatigability", "juxtapositional", "kinesiology", "lugubriousness", "magniloquence", "noctambulation", "obnubilate", "perfunctory", "quiddity", "refulgent", "supererogatory", "transcendentalism", "unputdownable", "verisimilar", "widdershins", "xenogenetic", "ylem", "zephyr", "abecedarian", "brachylogy", "cachinnate", "dalliance", "ebullient", "fructuous"],
+  legendary: ["antitransubstantiate", "brontide", "catoptromancy", "deipnosophist", "effervescence", "floccinaucinihilipilification", "gastromancy", "hippopotomonstrosesquipedaliophobia", "inconubinage", "jentacular", "keraunothnetophobia", "logomachy", "macroscian", "nociceptive", "omphaloskepsis", "peristeronic", "quomodo", "rhabdology", "sarcophagous", "thalassophile", "uroboros", "ventripotent", "witzelsucht", "xenobombulate", "yarborough", "zythum", "amphiscians", "boustrophedon", "carcharhinus", "dactylion"],
 };
-
-// array of hangman image filenames to be used in the function hangmanUpdatePicture
-let hangmanImages = [
-  "h1.png",
-  "h2.png",
-  "h3.png",
-  "h4.png",
-  "h5.png",
-  "h6.png",
-  "h7.png",
-  "h8.png",
-  "h9.png",
-  "h10.png"
-];
 
 // Function to update the hangman picture 
 function hangmanImageUpdate() {
@@ -66,11 +48,10 @@ function updateSliderDifficultyLabel() {
   let slider = document.getElementById("difficultyRange");
   let label = document.getElementById("difficultyLabel");
   // Map the slider value to the corresponding difficulty level
-  sliderValue = slider.value;
+  sliderValue = parseInt(slider.value);
   difficulty = difficultyArray[sliderValue];
   // Update the displayed difficulty label
   label.innerHTML = difficulty;
-  console.log(difficulty);
   // Correct the scope of the username variable
   return difficulty;
 }
@@ -140,7 +121,7 @@ function letterGuess(letter, hiddenWord, word, elapsedTimeInSeconds) {
     mistakeCount++; // Increment the global mistakeCount variable
     hangmanImageUpdate();
     logLetterNestedCurrentGame.push(attempt, elapsedTimeInSeconds, letter, "wrong", hiddenWord.join());
-  };
+  }
   // Check if the word has been completely guessed
   if (hiddenWord.join('').toUpperCase() === word.toUpperCase()) {
     winsInRow++;
@@ -189,7 +170,7 @@ function newGame(event) {
   document.getElementById("image").src = "assets/images/new.png"; //esseting image for game
   event.preventDefault(); // Disable screen update
   document.getElementById("image").style.display = ""; //unhiding picture
-  sliderValue = document.getElementById("difficultyRange").value;
+  sliderValue = parseInt(document.getElementById("difficultyRange").value);
   if (username === "") { // Checking if there is already a username declared
     username = document.getElementById("username").value; // If there is no username declared, do so
   }
@@ -199,6 +180,7 @@ function newGame(event) {
   updateHiddenWord(hiddenWord); // Create hidden word
   createAlphabet(); // Creating alphabet
   startTimer(); // Setting the current time when the game starts
+  console.log(word);
 }
 
 //function to reveal hidden word
@@ -223,12 +205,12 @@ function displayHiddenWord() {
 function gameOver() {
   //logging player actions
   logPlayerActions();
-  sliderValueOther = sliderValue; //resetting sliderValueOther
+  sliderValueOther = parseInt(sliderValue); //resetting sliderValueOther
   displayHiddenWord(); //revealing hidden word
   document.getElementById('timerDisplay').style.display = "none";
   // getting current difficulty level
   slider = document.getElementById("difficultyRange");
-  sliderValue = slider.value ;
+  sliderValue = parseInt(slider.value) ;
   document.getElementById("difficultyRange").value = sliderValue;
   difficulty = difficultyArray[sliderValue];
   //code to create 3 buttons depending on win/loose situation
@@ -238,6 +220,7 @@ function gameOver() {
   //Try Again will be shown by default each time
   gameTryAgainButton(buttonContainer, sliderValue);
   // code to check if player has LOST
+  
   if (gameResult == 0 && sliderValue == 0) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
     document.getElementById('buttonTryAgainId').innerHTML = 'This is ALREADY EASIEST level of game, please try HARDER';
   }
@@ -246,7 +229,7 @@ function gameOver() {
     gameTryAgainButtonOther (buttonContainer, sliderValueOther);
   }
   //code to check if player has WON
-  if (gameResult == 1 &&sliderValue == 6) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
+  if (gameResult == 1 && sliderValue == 6) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
   document.getElementById('buttonTryAgainId').innerHTML = 'This is already HARDEST level of game, Congratulations';
   } 
   else if ( gameResult == 1 && sliderValue < document.getElementById('difficultyRange').max) { // will reveal Other button because it is not hardest level
@@ -277,7 +260,7 @@ function gameTryAgainButtonOther (buttonContainer, sliderValueOther) {
     buttonTryAgainOther.innerHTML = 'Try playing "' + difficultyOther + '" difficulty';
     // add event listener to button
     buttonTryAgainOther.addEventListener('click', newGameOther); 
-    buttonContainer.appendChild(buttonTryAgainOther)
+    buttonContainer.appendChild(buttonTryAgainOther);
 }
 
 //function to play Other difficulty Game
@@ -292,7 +275,7 @@ function logPlayerActions() {
   logPlayerActionsAll.push(game,word, difficulty, logLetterNestedCurrentGame);
 }
 
-function contactForm() {
+function contactForm() { //tthis function is needed, as it is activated from HTML
   //now will clear up HTML page so it is empty to create form
   document.getElementById('form').style.display = "none"; // hide start game form
   document.getElementById('image').style.display = "none"; // hide image

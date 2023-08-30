@@ -8,7 +8,7 @@
     src: url(assets/fonts/jackwrite.woff2);
 }
 *{
-    font-size: 2.3vw;
+    font-size: 2vw;
     font-family: 'Handwritten', cursive;
     transition: ease all .5s;
 
@@ -94,8 +94,7 @@ nav a:hover {
 #startGameForm label, input, button{
     margin-top: 2vh;
     accent-color: #403e41;
-    /* font-size: 2.3vw; */
-    /* font-family: 'Handwritten', cursive; */
+
 }
 .instructions {
     position: relative;
@@ -120,7 +119,7 @@ nav a:hover {
 /* Creating styling for game */
 
 .letterButton {
-    font-size: 5vh;
+    font-size: 4vh;
 }
 .letterButton:hover {
     color: rgba(136, 8, 8, 1);
@@ -138,7 +137,8 @@ nav a:hover {
     margin-right: auto;
 }
 .guessWordLetters {
-    font-size: 5vh;
+    font-size: 4vh;
+    display: inline-block;
 }
 .gameOverButton {
     font-size: 4vh;
@@ -241,6 +241,7 @@ nav a:hover {
     }
     .guessWordLetters {
         font-size: 5vw;
+
     
     }
 }
