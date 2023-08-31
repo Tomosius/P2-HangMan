@@ -50,7 +50,6 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
   - [rearrangeNavigation](#rearrangenavigation)
   - [homePage](#homepage)
   - [playerActionsTable](#playeractionstable)
-- [Known Bugs](#known-bugs)
 
 
 
@@ -263,12 +262,9 @@ This function is intended for a player actions table:
 
 [Back to top ⇧](#rpsls)
 
-## Known Bugs
-### Try harder level button
-When player wins, second button does not show harder level difficulty, it shows it **"undefined"**, but at the same time when layer looses, same script is used and then easier level is displayed correctly.
-![Button Mistake](assets/images/button_mistake.png)
-### Choosing Harder level with second button
-When player wins and presses second button, so javascript automatically chooses harder level, after 2 times in a row it will jump to hardest level skipping all below. Lets say player started on **Begginer**, won, then clicked second button to play **Easy**, won, gain presses same button, will get **Intermediate** level, and if he wins and presses same button, game will skip **Advanced** and will choose **Expert**. 
-ave tried with different browsers, debugging, console.log, all indexes are fine, but somehow it just jumps. It can be related on game lag on my personal computer or code mistake
-### Game logs issue
-Game does not pushed player actions log to an array. When i debug, that array is empty. This is why on last page i can not generate log output table.
+## To Do List
+
+### Implement ChatGPT generating words
+I want in future to improve this code, so Ai could generate words, the downside Api Key has to be hidden, so will need to think a way around it.
+###  Player actions log output
+Also i would like in future to make separate file, where all player actions in Game could be stored and emailed to player if such thing is desired.
