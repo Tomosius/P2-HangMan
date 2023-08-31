@@ -223,4 +223,3 @@ This is just Dictionary and description for words...
 - boustrophedon: A form of ancient writing where the text alternates direction in a zigzag pattern.
 - carcharhinus: A genus of requiem sharks.
 - dactylion: The tip of the middle finger.
-

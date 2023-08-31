@@ -15,6 +15,9 @@ let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
 let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
 
+const startGameButton = document.getElementById('hangmanGame');
+startGameButton.addEventListener('click', (event) => newGame(event));
+
 //Array of difficulties
 let difficultyArray = [
   "beginner",
@@ -89,18 +92,26 @@ function createAlphabet() {
   let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let buttonContainer = document.getElementById('gameText'); // Getting the location where buttons will be placed
   buttonContainer.innerHTML = ""; // Clear previous content
+  function letterClickHandler(button, letter) {
+    button.style.backgroundColor = "rgb(136, 8, 8)"; // Set background color to red
+    letterGuess(letter, hiddenWord, word);
+    button.removeEventListener("click", button.clickHandler);
+  }
+  // function to attach event listeners
+  function attachEventListener(button, letter) {
+    button.clickHandler = function () {
+      letterClickHandler(button, letter);
+    };
+    button.addEventListener("click", button.clickHandler);
+  }
   for (let i = 0; i < alphabet.length; i++) {
     let letter = alphabet[i];
     let button = document.createElement("button");
     button.textContent = letter;
     button.className = "frame letterButton";
     buttonContainer.appendChild(button);
-    function letterClickHandler() {
-      button.style.backgroundColor = "rgb(136, 8, 8)"; // Set background color to red
-      letterGuess(letter, hiddenWord, word);
-      button.removeEventListener("click", letterClickHandler); // Remove the event listener after letterGuess is executed
-    }
-    button.addEventListener("click", letterClickHandler);
+    // Attach the event listener using the separate function
+    attachEventListener(button, letter);
   }
 }
 
@@ -149,7 +160,6 @@ function startTimer() {
   startTime = Date.now(); // Set the start time to the current time
   // Set up a timer to update the display every second (1000 milliseconds)
   timerInterval = setInterval(updateTimer, 1000);
-
 }
 
 // Function to calculate elapsed time and update the display
@@ -180,7 +190,6 @@ function newGame(event) {
   updateHiddenWord(hiddenWord); // Create hidden word
   createAlphabet(); // Creating alphabet
   startTimer(); // Setting the current time when the game starts
-  console.log(word);
 }
 
 //function to reveal hidden word
@@ -220,7 +229,6 @@ function gameOver() {
   //Try Again will be shown by default each time
   gameTryAgainButton(buttonContainer, sliderValue);
   // code to check if player has LOST
-  
   if (gameResult == 0 && sliderValue == 0) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
     document.getElementById('buttonTryAgainId').innerHTML = 'This is ALREADY EASIEST level of game, please try HARDER';
   }
@@ -253,7 +261,7 @@ function gameTryAgainButton (buttonContainer, sliderValue) {
 
 //function to display button Try again
 function gameTryAgainButtonOther (buttonContainer, sliderValueOther) {
- //code to create button Try Again Easier
+    //code to create button Try Again Easier
     let buttonTryAgainOther = document.createElement('button');
     buttonTryAgainOther.className = "frame gameOverButton";
     let difficultyOther = difficultyArray[sliderValueOther];
@@ -270,7 +278,7 @@ function newGameOther() {
   newGame(event);
 }
 
-//loging all layer actions
+//logging all layer actions
 function logPlayerActions() {
   logPlayerActionsAll.push(game,word, difficulty, logLetterNestedCurrentGame);
 }
@@ -339,13 +347,11 @@ function createForm() { //function to create contact form
   document.getElementById("clearForContactForm").style.width = "96vw";
   document.getElementById("clearForContactForm").style.height = "80vh";
   //document.getElementById("clearForContactForm").style.marginTop = "-38vh"; 15
-
   if (window.innerWidth < 450 && window.matchMedia("(orientation: portrait)").matches) {
     document.getElementById("clearForContactForm").style.marginTop = "-38vh";
   } else {
     document.getElementById("clearForContactForm").style.marginTop = "15vh";
   }
-
 }
 
 function rearrangeNavigation() {
@@ -367,7 +373,6 @@ function rearrangeNavigation() {
   navigationContainer.appendChild(linkedinLink);
   navigationContainer.appendChild(githubLink);
 }
-
 
 function playerActionsTable() { //create table to show player actions
  // need to create loops to put out game actions log to a table
