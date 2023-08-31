@@ -10,7 +10,6 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
 
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [User Experience (UX)](#user-experience-ux)
 - [Design](#design)
     - [Page Layout](#page-layout)
@@ -64,6 +63,8 @@ The Hangman game provides an engaging user experience through its intuitive inte
 - Visual feedback through animations, transitions, and hover effects on buttons.
 - Mobile responsiveness for optimal gameplay on different devices.
 
+[Back to top ⇧](#hangman-game)
+
 ## Design
 
 ### Page Layout
@@ -100,7 +101,15 @@ The game layout adapts gracefully to different screen sizes using media queries:
 
 These design elements come together to create an inviting and enjoyable atmosphere for players, making the Hangman game an engaging and visually appealing experience.
 
+[Back to top ⇧](#hangman-game)
+
 ## Testing
+
+### Javasript Testing
+Javascript was tested with [jshint](https://jshint.com/)
+* on line 287 i have unused variable "contactForm". It has o be, as intention was to make link in navigation work as a button not as a link. Soo when it is clicked, even it is hyperlink, it calls a function from javascript.
+
+
 ### Compatibility
 Website was tested for appearance, functionality or responsiveness on these devices:
 * Ipad Pro 12.9"
@@ -123,13 +132,15 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 --- | --- | ---
 Google Chrome | No appearance, responsiveness nor functionality issues.| Pass
 Safari | No appearance, responsiveness nor functionality issues. | Pass
-Mozilla Firefox | Scrollbar is visible even though it should be hidden. <br>No responsiveness nor functionality issues.| Pass
+Mozilla Firefox | No responsiveness nor functionality issues.| Pass
 Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
+
+[Back to top ⇧](#hangman-game)
 ## Validation
 ![W3C HTML Validation](assets/images/w3c_html.png)
 ![W3C CSS Validation](assets/images/w3c_css.png)
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 ## Technologies
 ### Languages used
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
@@ -146,7 +157,7 @@ Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
 * Git / GitHub for Version Control
 * Shields.io for badges used in README.md
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 ## Features
 
 - Choose from different difficulty levels, ranging from beginner to legendary.
@@ -156,7 +167,7 @@ Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
 - Player actions log to track each game's progress and outcomes.
 - Contact form for users to provide feedback or inquire.
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 
 ## Usage
 
@@ -167,7 +178,7 @@ Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
 4. The game ends when the word is fully revealed (win) or the hangman is completed (loss).
 5. User is presented only with first 5 levels of difficulty, after succeeding highest, one more will be revealed and so on, till Legendary difficulty is unlocked.
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 
 ### Difficulty Levels
 The game offers the following difficulty levels:
@@ -182,7 +193,7 @@ The game offers the following difficulty levels:
 
 Each level corresponds to a different set of words, with varying levels of complexity.
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 
 ## Functions
 
@@ -260,7 +271,7 @@ This function is intended for a player actions table:
 * Each game log output is visible in table
 * Eacg game will have sub-table for every guessing attempt made by player
 
-[Back to top ⇧](#rpsls)
+[Back to top ⇧](#hangman-game)
 
 ## To Do List
 
@@ -268,3 +279,5 @@ This function is intended for a player actions table:
 I want in future to improve this code, so Ai could generate words, the downside Api Key has to be hidden, so will need to think a way around it.
 ###  Player actions log output
 Also i would like in future to make separate file, where all player actions in Game could be stored and emailed to player if such thing is desired.
+
+[Back to top ⇧](#hangman-game)

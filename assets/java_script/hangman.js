@@ -11,6 +11,7 @@ let gameResult = 0; // win = 1, loose = 0
 let difficulty = "beginner"; // declaring difficulty variable and setting it to the lowest value for default
 let startTime = 0; //setting to zero timer when the game starts
 let winsInRow = 0; //how many times player won in a row
+let slider; // defining slider 
 let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
 let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
