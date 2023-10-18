@@ -13,7 +13,7 @@
     transition: ease all .5s;
 
 }
-.frame { /* adding box frames and shaping them arround each oobject */
+.frame { /* adding box frames and shaping them around each object */
     font-family: 'Handwritten', cursive;
     background: transparent;
     color: #403e41;
@@ -153,12 +153,12 @@ nav a:hover {
     margin-right: auto;
 }
 #contactFormJavaScript {
-    display: absolute;
+    position: absolute;
     margin: 0;
     width: 96vw;
-    line-height: auto;
-
+    line-height: normal;
 }
+
 @media screen and (max-width: 450px),screen and (orientation: portrait) {
 
     .split{
