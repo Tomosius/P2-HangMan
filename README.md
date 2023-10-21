@@ -27,7 +27,7 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
     - [Tools used](#tools-used)
 - [Features](#features)
     - [GamePlay](#gameplay)
-    - [Difficulty Leveels](#difficulty-levels)
+    - [Difficulty Levels](#difficulty-levels)
 - [Functions](#functions)
   - [hangmanImageUpdate](#hangmanimageupdate)
   - [updateSliderDifficultyLabel](#updatesliderdifficultylabel)
@@ -71,6 +71,16 @@ The Hangman game provides an engaging user experience through its intuitive inte
 
 The design of the Hangman game focuses on creating an appealing and user-friendly environment for players. Here are the design aspects that contribute to the overall look and feel of the game:
 
+|     Layout Name      |                 Layout Wireframe                  |
+|:--------------------:|:-------------------------------------------------:|
+| Main Page Horizontal | ![main_page_h.png](assets/images/main_page_h.png) |
+|  Main Page Vertical  | ![main_page_v.png](assets/images/main_page_v.png) |
+| Game Play Horizontal |      ![game_h.png](assets/images/game_h.png)      |
+|  Game Play Vertical  |      ![game_v.png](assets/images/game_v.png)      |
+| Game Over Horizontal | ![game_over_h.png](assets/images/game_over_h.png) |
+|  Game Over Vertical  | ![game_over_v.png](assets/images/game_over_v.png) |
+
+
 ### Fonts
 
 Two custom fonts were selected to enhance the visual appeal and uniqueness of the game's interface:
@@ -90,7 +100,8 @@ The color palette is chosen to provide a balance between readability and visual 
 
 The game layout is divided into two main sections: the right side and the left side. This division optimizes screen space and ensures a comfortable gaming experience on both larger screens and mobile devices:
 
-- **Right Side**: Contains navigation links, an image of a hanged man, and a log of player actions.
+- **Right Side**: Contains navigation links, an image of a hanged-man, and 
+  a log of player actions.
 - **Left Side**: Displays instructions, the game's title, and the area where the user interacts with the game.
 
 ### Responsiveness
@@ -105,13 +116,44 @@ These design elements come together to create an inviting and enjoyable atmosphe
 
 ## Testing
 
-### Javasript Testing
+### Javascript Testing
 Javascript was tested with [jshint](https://jshint.com/)
-* on line 287 i have unused variable "contactForm". It has o be, as intention was to make link in navigation work as a button not as a link. Soo when it is clicked, even it is hyperlink, it calls a function from javascript.
+* on line 287 I have unused variable "contactForm".
+  It has to be, as intention was
+  to make a link in navigation work as a button not as a link.
+  Soo when it is clicked,
+  even it is hyperlink, it calls a function from javascript.
+
+|               Feature                |                         Expected Outcome                          | Result |
+|:------------------------------------:|:-----------------------------------------------------------------:|:------:|
+|  Start Button listening for "event"  |                          New game Starts                          |  Pass  |
+|       Moving Difficulty Slider       |                     Difficulty label changes                      |  Pass  |
+|  Difficulty range passed to program  |                Game starts on selected difficulty                 |  Pass  |
+|           Game choose word           |             Game chooses word on selected difficulty              |  Pass  |
+| Function to create letters - buttons |                Buttons with Letters are Displayed                 |  Pass  |
+|           Letter Clicking            |             After letter clicked - it changes colour              |  Pass  |
+|           Letter Clicking            |            Button becomes inactive after being pressed            |  Pass  |
+|           Letter Clicking            | Java Script passes letter value to be processed by game algorithm |  Pass  |
+|         Correct Letter Guess         | When letter is guessed correctly, it is revealed in hidden word  |  Pass  |
+|          Wrong letter Guess          |            When wrong letter guessed, picture changes             |  Pass  |
+|          Wrong Letter Guess          |               Game counts wrong guessing attempts                |  Pass  |
+|       Word guessed successfully       |                             Game win                              |  Pass  |
+|               Game Win               |          Program offers to try same level of difficulty           |  Pass  |
+|               Game Win               |             Program offers to try harder difficulty              |  Pass  |
+|      Game Win on hardest level       |                  Next Difficulty level unlocked                   |  Pass  |
+|   Game win on Legendary difficulty   |                     Congratulations displayed                     |  Pass  |
+|              Game Loose              |           Program offers to play same difficulty again            |  Pass  |
+|              Game Loose              |             Program offers to try easier difficulty              |  Pass  |
+|   Game Loose on Easiest Difficulty   |       Program displays text when loosing Easiest difficulty       |  Pass  |
+|            Starting Game             |                         Game timer starts                         |  Pass  |
+
+
+
 
 
 ### Compatibility
-Website was tested for appearance, functionality or responsiveness on these devices:
+The Website was tested for appearance,
+functionality or responsiveness on these devices:
 * Ipad Pro 12.9"
 * Macbook Air 13"
 * Iphone 12
@@ -152,9 +194,10 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ### Bootstrapping
 * Fonts were used from Google Fonts
-* Icons Icomns were not useed as intention of all layout - handwriten oon paper style
+* Icons on hyperlinks were not used as intention of all layouts 
+  handwritten on paper style
 ### Tools used
-* Gimp for cropping  and adjusting images
+* Program "Gimp" for cropping and adjusting images
 * Visual Studio Code - as Code Editor
 * Git / GitHub for Version Control
 * Shields.io for badges used in README.md
@@ -178,7 +221,7 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 2. Click the "Start Game" button to begin. The game will display a hidden word as a series of underscores.
 3. Use the on-screen buttons to guess letters. Each correct guess will reveal the position of the letter in the word. Incorrect guesses will update the hangman image.
 4. The game ends when the word is fully revealed (win) or the hangman is completed (loss).
-5. User is presented only with first 5 levels of difficulty, after succeeding highest, one more will be revealed and so on, till Legendary difficulty is unlocked.
+5. User is presented only with the first five levels of difficulty; after succeeding highest, one more will be revealed and so on, till Legendary difficulty is unlocked.
 
 [Back to top ⇧](#hangman-game)
 
@@ -217,7 +260,8 @@ This function updates the displayed hidden word on the screen.
 This function creates and displays clickable alphabet buttons for letter guessing.
 
 ### letterGuess
-This function handles a letter guess, updates the hidden word, and logs player actions.
+This function handles a letter guess,
+updates the hidden word, and log player actions.
 
 ### updateTimerDisplay
 This function updates the countdown timer display.
@@ -234,11 +278,11 @@ This function starts a new game, resetting various game-related variables and UI
 ### gameTryAgainButton
 This function displays the "Try Again" button on the game over screen.
 * If player was already playing EASIEST (**Beginner**) level, it will change button text contents accordingly
-* If player has won hardest (**Legendary**) level, text within button will congratulate player and will offer to try iit again
+* If a player has won the hardest (**Legendary**) level, a text within button will congratulate the player and will offer to try iit again
 
 ### gameTryAgainButtonOther
 This function displays the "Try Again" button with a different difficulty level on the game over screen. When button pressed, will initiate function **newGameOther**
-* If player has lost, it will offer easier difficulty based on one player just jas lost
+* If a player has lost, it will offer easier difficulty based on one player just jas lost
 * If player won, then button will offer harder difficulty to try
 * Function also checks, was it Beginner or Legendary difficulties, if so, this button will not be revealed
 
@@ -252,9 +296,10 @@ This function handles the game over state, including logging player actions and 
 This function logs player actions, including the current game's progress and outcome.
 
 ### contactForm
-**contact** hyperlink clicked in NAV section will triger function **contactForm**, which will initiate other functions to change layout of page feedback or inquiries. 
+**contact** hyperlink clicked in NAV section will trigger function **contactForm**, which will initiate other functions to change the layout of page feedback or inquiries. 
 ### createForm
-This function creates the contact form elements, where player can fill details and post them.
+This function creates the contact form elements,
+where the player can fill details and post them.
 
 ### rearrangeNavigation
 This function rearranges navigation links based on the current page. Button **Contact** becomes **Home** page and will be moved to left
@@ -264,23 +309,27 @@ This function restores the homepage content and functionality:
 * Restores HomePage text and layout
 * Stops the times
 * Restores instructions
-* Restores main image to default
-By using function instead of manually refreshing page, player can keepp current game progress (win loose and etc).
+* Restore the main image to default
+By using function instead of manually refreshing page,
+  player can keep current game progress (win loose etc.).
 
 
 ### playerActionsTable
 This function is intended for a player actions table:
 * Each game log output is visible in table
-* Eacg game will have sub-table for every guessing attempt made by player
+* Each game will have a sub-table for every guessing attempt made by player
 
 [Back to top ⇧](#hangman-game)
 
 ## To Do List
 
 ### Implement ChatGPT generating words
-I want in future to improve this code, so Ai could generate words, the downside Api Key has to be hidden, so will need to think a way around it.
+I want in the future to improve this code, so Ai could generate words,
+the downside Api Key has to be hidden, so will need to think a way around it.
 ###  Player actions log output
-Also i would like in future to make separate file, where all player actions in Game could be stored and emailed to player if such thing is desired.
+Also, I would like in future to make separate file,
+where all player actions in Game could be stored
+and emailed to player if such a thing is desired.
 
 [Back to top ⇧](#hangman-game)
 
