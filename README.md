@@ -119,21 +119,23 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 ### Manual Testing
 * Device compatibility
 
-| Device | Test | Result |
-| --- | --- | --- |
-| MacBook Air 13" | No appearance, responsiveness nor functionality issues. | Pass |
-| iPad Pro 12.9" | No appearance, responsiveness nor functionality issues. | Pass |
-| iPhone 8 | No appearance, responsiveness nor functionality issues. | Pass |
+| Device          | Test                                                    | Result |
+|-----------------|---------------------------------------------------------|--------|
+| MacBook Air 13" | No appearance, responsiveness nor functionality issues. | Pass   |
+| iPad Pro 12.9"  | No appearance, responsiveness nor functionality issues. | Pass   |
+| iPhone 8        | No appearance, responsiveness nor functionality issues. | Pass   |
+
 
 
 ### Browser Compatibility
 
-| Browser | Test | Result  |
---- | --- | ---
-Google Chrome | No appearance, responsiveness nor functionality issues.| Pass
-Safari | No appearance, responsiveness nor functionality issues. | Pass
-Mozilla Firefox | No responsiveness nor functionality issues.| Pass
-Microsoft Edge | No appearance, responsiveness nor functionality issues. | Pass
+| Browser         | Test                                                    | Result |
+|-----------------|---------------------------------------------------------|--------|
+| Google Chrome   | No appearance, responsiveness nor functionality issues. | Pass   |
+| Safari          | No appearance, responsiveness nor functionality issues. | Pass   |
+| Mozilla Firefox | No responsiveness nor functionality issues.             | Pass   |
+| Microsoft Edge  | No appearance, responsiveness nor functionality issues. | Pass   |
+
 
 [Back to top ⇧](#hangman-game)
 ## Validation
@@ -281,3 +283,7 @@ I want in future to improve this code, so Ai could generate words, the downside 
 Also i would like in future to make separate file, where all player actions in Game could be stored and emailed to player if such thing is desired.
 
 [Back to top ⇧](#hangman-game)
+
+## Bugs
+
+

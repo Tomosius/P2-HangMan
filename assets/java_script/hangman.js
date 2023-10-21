@@ -11,7 +11,7 @@ let gameResult = 0; // win = 1, loose = 0
 let difficulty = "beginner"; // declaring difficulty variable and setting it to the lowest value for default
 let startTime = 0; //setting to zero timer when the game starts
 let winsInRow = 0; //how many times player won in a row
-let slider; // defining slider 
+let slider; // defining slider
 let sliderValue = 0; //default slider value for difficulties
 let sliderValueOther = 0; //will be used to reveal new buttons in game
 let logPlayerActionsAll = ["Game", "Difficulty", "Word", "Lost or Won?",["Attemt", "Time", "Letter", "Guess", "Hidden Word"]]; //information will be stored as follows:
@@ -41,7 +41,7 @@ let wordArray = {
   legendary: ["antitransubstantiate", "brontide", "catoptromancy", "deipnosophist", "effervescence", "floccinaucinihilipilification", "gastromancy", "hippopotomonstrosesquipedaliophobia", "inconubinage", "jentacular", "keraunothnetophobia", "logomachy", "macroscian", "nociceptive", "omphaloskepsis", "peristeronic", "quomodo", "rhabdology", "sarcophagous", "thalassophile", "uroboros", "ventripotent", "witzelsucht", "xenobombulate", "yarborough", "zythum", "amphiscians", "boustrophedon", "carcharhinus", "dactylion"],
 };
 
-// Function to update the hangman picture 
+// Function to update the hangman picture
 function hangmanImageUpdate() {
   let imageElement = document.getElementById("image");
   imageElement.src = "assets/images/h" + mistakeCount + ".png";
@@ -69,11 +69,11 @@ function chooseWord(difficulty) {
   // Get the element where the hidden word will be displayed
   let hiddenWordLocation = document.getElementById('guessedWord');
   hiddenWordLocation.innerHTML = ''; // Clear previous content
-    for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < word.length; i++) {
     hiddenWord.push("*");
-    }
+  }
   // Initialize the hiddenWord array with underscores
-return word; // Return the chosen word
+  return word; // Return the chosen word
 }
 
 //function to update the hidden word
@@ -137,16 +137,16 @@ function letterGuess(letter, hiddenWord, word, elapsedTimeInSeconds) {
   // Check if the word has been completely guessed
   if (hiddenWord.join('').toUpperCase() === word.toUpperCase()) {
     winsInRow++;
-    gameResult = 1;    
+    gameResult = 1;
     updateHiddenWord(hiddenWord);
     gameOver();
     logPlayerActionsAll.push(game, difficulty, word, "WON", logLetterNestedCurrentGame);
   }
   if (mistakeCount === 10) {
-  winsInRow = 0;
-  gameResult = 0;
-  logPlayerActionsAll.push(game, difficulty, word, "LOST", logLetterNestedCurrentGame);
-  gameOver ();
+    winsInRow = 0;
+    gameResult = 0;
+    logPlayerActionsAll.push(game, difficulty, word, "LOST", logLetterNestedCurrentGame);
+    gameOver ();
   }
 }
 
@@ -230,18 +230,18 @@ function gameOver() {
   //Try Again will be shown by default each time
   gameTryAgainButton(buttonContainer, sliderValue);
   // code to check if player has LOST
-  if (gameResult == 0 && sliderValue == 0) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
+  if (gameResult === 0 && sliderValue === 0) { //if it is the easiest level of game, we will change just "gameTreyAgainButton" Text content
     document.getElementById('buttonTryAgainId').innerHTML = 'This is ALREADY EASIEST level of game, please try HARDER';
   }
-  else if (gameResult == 0 && sliderValue > 0) { // will reveal Other button because it is not easiest level
+  else if (gameResult === 0 && sliderValue > 0) { // will reveal Other button because it is not the easiest level
     sliderValueOther = sliderValue - 1;
     gameTryAgainButtonOther (buttonContainer, sliderValueOther);
   }
   //code to check if player has WON
-  if (gameResult == 1 && sliderValue == 6) { //if it is easiest level of game, we will change just "gameTreyAgainButton" Text content
-  document.getElementById('buttonTryAgainId').innerHTML = 'This is already HARDEST level of game, Congratulations';
-  } 
-  else if ( gameResult == 1 && sliderValue < document.getElementById('difficultyRange').max) { // will reveal Other button because it is not hardest level
+  if (gameResult === 1 && sliderValue === 6) { //if it is the easiest level of game, we will change just "gameTreyAgainButton" Text content
+    document.getElementById('buttonTryAgainId').innerHTML = 'This is already HARDEST level of game, Congratulations';
+  }
+  else if ( gameResult === 1 && sliderValue < document.getElementById('difficultyRange').max) { // will reveal Other button because it is not the hardest level
     sliderValueOther = sliderValue + 1;
     gameTryAgainButtonOther (buttonContainer, sliderValueOther);
   }
@@ -256,27 +256,27 @@ function gameTryAgainButton (buttonContainer, sliderValue) {
   let currentDifficulty = difficultyArray[sliderValue];
   buttonTryAgain.innerHTML = 'Try playing game again with same "' + currentDifficulty + '" difficulty';
   // add event listener to button
-  buttonTryAgain.addEventListener('click', newGame); 
+  buttonTryAgain.addEventListener('click', newGame);
   buttonContainer.appendChild(buttonTryAgain);
 }
 
 //function to display button Try again
 function gameTryAgainButtonOther (buttonContainer, sliderValueOther) {
-    //code to create button Try Again Easier
-    let buttonTryAgainOther = document.createElement('button');
-    buttonTryAgainOther.className = "frame gameOverButton";
-    let difficultyOther = difficultyArray[sliderValueOther];
-    buttonTryAgainOther.innerHTML = 'Try playing "' + difficultyOther + '" difficulty';
-    // add event listener to button
-    buttonTryAgainOther.addEventListener('click', newGameOther); 
-    buttonContainer.appendChild(buttonTryAgainOther);
+  //code to create button Try Again Easier
+  let buttonTryAgainOther = document.createElement('button');
+  buttonTryAgainOther.className = "frame gameOverButton";
+  let difficultyOther = difficultyArray[sliderValueOther];
+  buttonTryAgainOther.innerHTML = 'Try playing "' + difficultyOther + '" difficulty';
+  // add event listener to button
+  buttonTryAgainOther.addEventListener('click', newGameOther);
+  buttonContainer.appendChild(buttonTryAgainOther);
 }
 
 //function to play Other difficulty Game
 function newGameOther() {
   document.getElementById("difficultyRange").value =sliderValueOther; //reducing easier difficulty by 1
   updateSliderDifficultyLabel(); //updating slider so player will see new label of difficulty
-  newGame(event);
+  newGame();
 }
 
 //logging all layer actions
@@ -285,22 +285,36 @@ function logPlayerActions() {
 }
 
 function contactForm() { //tthis function is needed, as it is activated from HTML
-  //now will clear up HTML page so it is empty to create form
+                         //now will clear up HTML page, so it is empty to create form
   document.getElementById('form').style.display = "none"; // hide start game form
   document.getElementById('image').style.display = "none"; // hide image
   document.getElementById('clearForContactForm').innerHTML = "";
   // clearing left side where form will be located by default
   //now will start creating Form by itself on left side
-  createForm();
+  createForm();//logging all layer actions
+  function logPlayerActions() {
+    logPlayerActionsAll.push(game, word, difficulty, logLetterNestedCurrentGame);
+  }
+
+  function contactForm() { //tthis function is needed, as it is activated from HTML
+    //now will clear up HTML page, so it is empty to create form
+    document.getElementById('form').style.display = "none"; // hide start game form
+    document.getElementById('image').style.display = "none"; // hide image
+    document.getElementById('clearForContactForm').innerHTML = "";
+    // clearing left side where form will be located by default
+    //now will start creating Form by itself on left side
+    createForm();
+    rearrangeNavigation();
+    playerActionsTable ();
+  }
   rearrangeNavigation();
   playerActionsTable ();
 }
 
 function createForm() { //function to create contact form
-  // Create a form element
+                        // Create a form element
   let form = document.createElement("form");
   form.className = "instructions";
-  //form.Id = "contactFormJavaScript";
   form.action="https://formdump.codeinstitute.net";
   // Create a label and input for name
   let nameLabel = document.createElement("label");
@@ -364,8 +378,8 @@ function rearrangeNavigation() {
   let contactLink = document.getElementById("Contact");
   // removing links from container, so later will append them as children in different order
   navigationContainer.removeChild(githubLink);
-    navigationContainer.removeChild(linkedinLink);
-    navigationContainer.removeChild(contactLink);
+  navigationContainer.removeChild(linkedinLink);
+  navigationContainer.removeChild(contactLink);
   // changing contact to home button
   contactLink.innerHTML = "Home Page";
   contactLink.href="index.html"; //changing what function will be called when clicking home Button
@@ -376,5 +390,5 @@ function rearrangeNavigation() {
 }
 
 function playerActionsTable() { //create table to show player actions
- // need to create loops to put out game actions log to a table
+  // need to create loops to put out game actions log to a table
 }
