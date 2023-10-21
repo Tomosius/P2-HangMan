@@ -134,16 +134,16 @@ Javascript was tested with [jshint](https://jshint.com/)
 |           Letter Clicking            |             After letter clicked - it changes colour              |  Pass  |
 |           Letter Clicking            |            Button becomes inactive after being pressed            |  Pass  |
 |           Letter Clicking            | Java Script passes letter value to be processed by game algorithm |  Pass  |
-|         Correct Letter Guess         | When letter is guessed correctly, it is revealed in hidden word  |  Pass  |
+|         Correct Letter Guess         |  When letter is guessed correctly, it is revealed in hidden word  |  Pass  |
 |          Wrong letter Guess          |            When wrong letter guessed, picture changes             |  Pass  |
-|          Wrong Letter Guess          |               Game counts wrong guessing attempts                |  Pass  |
-|       Word guessed successfully       |                             Game win                              |  Pass  |
+|          Wrong Letter Guess          |                Game counts wrong guessing attempts                |  Pass  |
+|      Word guessed successfully       |                             Game win                              |  Pass  |
 |               Game Win               |          Program offers to try same level of difficulty           |  Pass  |
-|               Game Win               |             Program offers to try harder difficulty              |  Pass  |
+|               Game Win               |              Program offers to try harder difficulty              |  Pass  |
 |      Game Win on hardest level       |                  Next Difficulty level unlocked                   |  Pass  |
 |   Game win on Legendary difficulty   |                     Congratulations displayed                     |  Pass  |
 |              Game Loose              |           Program offers to play same difficulty again            |  Pass  |
-|              Game Loose              |             Program offers to try easier difficulty              |  Pass  |
+|              Game Loose              |              Program offers to try easier difficulty              |  Pass  |
 |   Game Loose on Easiest Difficulty   |       Program displays text when loosing Easiest difficulty       |  Pass  |
 |            Starting Game             |                         Game timer starts                         |  Pass  |
 
@@ -334,5 +334,7 @@ and emailed to player if such a thing is desired.
 [Back to top ⇧](#hangman-game)
 
 ## Bugs
+
+
 
 

@@ -6,11 +6,12 @@
  */
 
 // Global Variables
-let timerInterval; // Timer interval for game clock
+let timerInterval; // Timer interval for a game clock
 let word = ""; // Current word to be guessed
 let mistakeCount = 0; // Number of incorrect guesses
 let attempt = 0; // Number of attempts by the player
-let hiddenWord = []; // Current state of the word being guessed, represented with asterisks and revealed letters
+let hiddenWord = []; // The current state of the word being guessed,
+// represented with asterisks and revealed letters
 let game = 0; // Game counter to track the number of games played
 let username = ""; // Player's username
 let logLetterNestedCurrentGame = []; // Log to store the guessed letters for the current game
@@ -322,7 +323,7 @@ function displayHiddenWord() {
 
 
 /**
- * Handle Game Over.
+ * Handle a Game Over.
  *
  * This function performs all the actions required once the game is over, either
  * because the player won or lost. It clears the existing timer, hides the timer
@@ -432,7 +433,7 @@ function logPlayerActions() {
  *
  * This function performs several tasks to prepare the UI for the contact form:
  * 1. Hides the existing game-related elements.
- * 2. Clears the designated area where the contact form will be displayed.
+ * 2. Clear the designated area where the contact form will be displayed.
  * 3. Initiates the creation of the contact form via the 'createForm' function.
  * 4. Rearranges the navigation menu via the 'rearrangeNavigation' function.
  * 5. Displays the table that logs player actions via the 'playerActionsTable' function.
@@ -452,9 +453,9 @@ function contactForm() {
  * This function dynamically creates a contact form and appends it to the designated area of the webpage.
  * The contact form consists of the following elements:
  * 1. A name field (populated with the username if available)
- * 2. An email field
+ * 2. Email field
  * 3. A text area for the user's message
- * 4. A submit button
+ * 4. Submit button
  *
  * The form also accommodates responsive design by adjusting its position based on the screen width and orientation.
  */
