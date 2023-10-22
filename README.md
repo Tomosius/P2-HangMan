@@ -49,6 +49,7 @@ Welcome to the Hangman Game! This is a simple web-based implementation of the cl
   - [rearrangeNavigation](#rearrangenavigation)
   - [homePage](#homepage)
   - [playerActionsTable](#playeractionstable)
+- [Deployment](#deployment)
 
 
 
@@ -118,7 +119,7 @@ These design elements come together to create an inviting and enjoyable atmosphe
 
 ### Javascript Testing
 Javascript was tested with [jshint](https://jshint.com/)
-* on line 287 I have unused variable "contactForm".
+* on line 287 I've unused variable "contactForm".
   It has to be, as intention was
   to make a link in navigation work as a button not as a link.
   Soo when it is clicked,
@@ -194,11 +195,11 @@ All these devices have used Safari, Firefox and Google Chrome browsers
 ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ### Bootstrapping
 * Fonts were used from Google Fonts
-* Icons on hyperlinks were not used as intention of all layouts 
+* Icons on hyperlinks weren't used as intention of all layouts 
   handwritten on paper style
 ### Tools used
 * Program "Gimp" for cropping and adjusting images
-* Visual Studio Code - as Code Editor
+* Visual Studio Code – as Code Editor
 * Git / GitHub for Version Control
 * Shields.io for badges used in README.md
 
@@ -282,9 +283,9 @@ This function displays the "Try Again" button on the game over screen.
 
 ### gameTryAgainButtonOther
 This function displays the "Try Again" button with a different difficulty level on the game over screen. When button pressed, will initiate function **newGameOther**
-* If a player has lost, it will offer easier difficulty based on one player just jas lost
+* If a player has lost, it will offer easier difficulty based on one player just has lost
 * If player won, then button will offer harder difficulty to try
-* Function also checks, was it Beginner or Legendary difficulties, if so, this button will not be revealed
+* Function also checks, was it Beginner or Legendary difficulties, if so, this button won't be revealed
 
 ### newGameOther
 This function starts a new game with a different difficulty level.
@@ -321,6 +322,24 @@ This function is intended for a player actions table:
 
 [Back to top ⇧](#hangman-game)
 
+## Deployment
+
+### GitHub Pages
+
+* Here are the steps to deploy this website to GitHub Pages from its GitHub repository:
+
+  1. Log in to GitHub and locate the [GitHub Repository](https://github.com/).
+
+  2. At the top of the Repository, locate the Settings button from the menu.
+
+  3. Scroll down for the Settings page until you locate the Pages section.
+
+  4. Under Source, click the dropdown called None and select Master Branch.
+
+  5. The page will refresh automatically and generate a link to your website.
+
+[Back to top ⇧](#hangman-game)
+
 ## To Do List
 
 ### Implement ChatGPT generating words
@@ -333,7 +352,7 @@ and emailed to player if such a thing is desired.
 
 [Back to top ⇧](#hangman-game)
 
-## Bugs
+
 
 
 
